@@ -1,6 +1,8 @@
 import Navigation from "@/components/Navigation";
+import QuoteRequest from "@/components/QuoteRequest";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { BUSINESS_CONTACT } from "@/lib/constants";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export default function Contact() {
@@ -17,18 +19,7 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>Get in Touch</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-6">
-                Contact form coming soon. For now, please reach out using the
-                information provided.
-              </p>
-              <Button>Request Quote</Button>
-            </CardContent>
-          </Card>
+          <QuoteRequest title="Get in Touch" />
 
           <div className="space-y-6">
             <Card>
@@ -37,9 +28,7 @@ export default function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                   <div>
                     <h3 className="font-semibold">Office Location</h3>
-                    <p className="text-gray-600">
-                      New Jersey (Serving Statewide)
-                    </p>
+                    <p className="text-gray-600">{BUSINESS_CONTACT.address}</p>
                   </div>
                 </div>
               </CardContent>
@@ -51,7 +40,7 @@ export default function Contact() {
                   <Phone className="w-5 h-5 text-primary" />
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">{BUSINESS_CONTACT.phone}</p>
                   </div>
                 </div>
               </CardContent>
@@ -63,7 +52,7 @@ export default function Contact() {
                   <Mail className="w-5 h-5 text-primary" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-600">info@premierappraisalnj.com</p>
+                    <p className="text-gray-600">{BUSINESS_CONTACT.email}</p>
                   </div>
                 </div>
               </CardContent>
