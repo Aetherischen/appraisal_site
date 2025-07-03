@@ -76,7 +76,24 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
-          <p>© 2024 Premier Appraisal Services. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <p>© 2024 Premier Appraisal Services. All rights reserved.</p>
+            <div className="flex gap-4 text-sm">
+              <Link
+                to="/privacy-policy"
+                className="hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span>•</span>
+              <Link
+                to="/terms-of-service"
+                className="hover:text-primary transition-colors"
+              >
+                Terms of Service
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
