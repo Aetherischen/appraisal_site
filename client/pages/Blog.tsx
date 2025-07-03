@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -68,6 +69,7 @@ export default function Blog() {
           <p className="text-gray-600">More blog posts coming soon...</p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

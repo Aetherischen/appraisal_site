@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function About() {
@@ -41,6 +42,7 @@ export default function About() {
           </Card>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import QuoteRequest from "@/components/QuoteRequest";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BUSINESS_CONTACT } from "@/lib/constants";
 import {
-  Home,
   Building,
   Shield,
   Clock,
