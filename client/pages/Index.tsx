@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BUSINESS_CONTACT } from "@/lib/constants";
 import {
+  Home,
   Building,
   Shield,
   Clock,
