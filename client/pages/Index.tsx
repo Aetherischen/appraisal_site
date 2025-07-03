@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import QuoteRequest from "@/components/QuoteRequest";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { BUSINESS_CONTACT } from "@/lib/constants";
 import {
   Home,
   Building,
@@ -112,19 +114,10 @@ export default function Index() {
             </div>
             <div className="relative">
               <div className="bg-primary/10 rounded-2xl p-8 backdrop-blur-sm">
-                <div className="bg-white rounded-lg p-6 shadow-lg">
-                  <h3 className="font-semibold text-gray-900 mb-4">
-                    Quick Quote Request
-                  </h3>
-                  <div className="space-y-3">
-                    <div className="h-3 bg-gray-200 rounded animate-pulse"></div>
-                    <div className="h-3 bg-gray-200 rounded animate-pulse w-3/4"></div>
-                    <div className="h-3 bg-gray-200 rounded animate-pulse w-1/2"></div>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-4">
-                    Contact form coming soon
-                  </p>
-                </div>
+                <QuoteRequest
+                  variant="inline"
+                  className="bg-white rounded-lg p-6 shadow-lg"
+                />
               </div>
             </div>
           </div>
@@ -264,7 +257,7 @@ export default function Index() {
               variant="outline"
               className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary"
             >
-              Call (555) 123-4567
+              Call {BUSINESS_CONTACT.phone}
             </Button>
           </div>
         </div>
@@ -318,9 +311,9 @@ export default function Index() {
             <div>
               <h3 className="font-semibold mb-4">Contact</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>New Jersey (Statewide)</li>
-                <li>(555) 123-4567</li>
-                <li>info@premierappraisalnj.com</li>
+                <li>{BUSINESS_CONTACT.address}</li>
+                <li>{BUSINESS_CONTACT.phone}</li>
+                <li>{BUSINESS_CONTACT.email}</li>
               </ul>
             </div>
           </div>
