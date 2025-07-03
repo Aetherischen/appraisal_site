@@ -4,7 +4,7 @@ import { BUSINESS_CONTACT } from "@/lib/constants";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-white text-gray-900 py-12 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -12,15 +12,17 @@ const Footer = () => {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <Home className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold">Premier Appraisal</span>
+              <span className="text-xl font-bold text-gray-900">
+                Premier Appraisal
+              </span>
             </div>
-            <p className="text-gray-400">
+            <p className="text-gray-600">
               Professional real estate appraisal services throughout New Jersey.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-gray-400">
+            <h3 className="font-semibold mb-4 text-gray-900">Services</h3>
+            <ul className="space-y-2 text-gray-600">
               <li>Residential Appraisals</li>
               <li>Commercial Appraisals</li>
               <li>Expert Witness</li>
@@ -28,35 +30,52 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-gray-400">
+            <h3 className="font-semibold mb-4 text-gray-900">Company</h3>
+            <ul className="space-y-2 text-gray-600">
               <li>
-                <Link to="/about" className="hover:text-white">
+                <Link
+                  to="/about"
+                  className="hover:text-primary transition-colors"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-white">
+                <Link
+                  to="/services"
+                  className="hover:text-primary transition-colors"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="hover:text-primary transition-colors"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white">
+                <Link
+                  to="/contact"
+                  className="hover:text-primary transition-colors"
+                >
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-gray-400">
+            <h3 className="font-semibold mb-4 text-gray-900">Contact</h3>
+            <ul className="space-y-2 text-gray-600">
               <li>{BUSINESS_CONTACT.address}</li>
               <li>{BUSINESS_CONTACT.phone}</li>
               <li>{BUSINESS_CONTACT.email}</li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
           <p>© 2024 Premier Appraisal Services. All rights reserved.</p>
         </div>
       </div>
