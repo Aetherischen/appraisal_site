@@ -255,8 +255,8 @@ export default function Index() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary"
+              variant="secondary"
+              className="text-lg px-8 bg-white text-primary hover:bg-gray-100"
             >
               Call {BUSINESS_CONTACT.phone}
             </Button>
