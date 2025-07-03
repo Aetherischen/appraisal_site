@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -32,17 +33,18 @@ export default function Blog() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay informed with the latest insights, market trends, and expert
-            advice from our team of certified appraisers.
-          </p>
-        </div>
 
+      <PageHeader
+        badge="Insights & Expertise"
+        title="Appraisal"
+        subtitle="Blog"
+        description="Stay informed with the latest insights, market trends, and expert advice from our team of certified appraisers."
+        variant="gradient"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {placeholderPosts.map((post) => (
             <Card

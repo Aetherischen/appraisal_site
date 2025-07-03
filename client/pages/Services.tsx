@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Home,
   Building2,
@@ -126,25 +126,13 @@ export default function Services() {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 via-blue-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Badge className="mb-4" variant="secondary">
-              Professional Appraisal Services
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Comprehensive <span className="text-primary">Real Estate</span>{" "}
-              Appraisal Services
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              From residential homes to commercial properties, we provide
-              accurate, certified appraisals for every real estate need
-              throughout New Jersey.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        badge="Professional Appraisal Services"
+        title="Comprehensive"
+        subtitle="Real Estate Appraisal Services"
+        description="From residential homes to commercial properties, we provide accurate, certified appraisals for every real estate need throughout New Jersey."
+        variant="gradient"
+      />
 
       {/* Services Grid */}
       <section className="py-20 bg-gray-50">
