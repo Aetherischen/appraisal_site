@@ -1,36 +1,147 @@
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Calendar,
+  Clock,
+  User,
+  ArrowRight,
+  TrendingUp,
+  Home,
+  FileText,
+  DollarSign,
+  AlertCircle,
+  BookOpen,
+  Star,
+} from "lucide-react";
 
 export default function Blog() {
-  const placeholderPosts = [
-    {
-      id: 1,
-      title: "Understanding Home Appraisal Process in New Jersey",
-      excerpt:
-        "A comprehensive guide to what homeowners can expect during the appraisal process.",
-      date: "March 15, 2024",
-      category: "Education",
-    },
+  const featuredPost = {
+    id: 1,
+    title:
+      "New Jersey Real Estate Market Report: Q4 2024 Trends & Predictions for 2025",
+    excerpt:
+      "Our comprehensive analysis of the New Jersey real estate market reveals key trends, pricing patterns, and what property owners should expect in the coming year. Based on thousands of appraisals completed across the state.",
+    content:
+      "The New Jersey real estate market has shown remarkable resilience throughout 2024, with notable variations across different regions and property types...",
+    date: "December 15, 2024",
+    readTime: "8 min read",
+    category: "Market Analysis",
+    author: "Michael Thompson, MAI",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop",
+    featured: true,
+  };
+
+  const blogPosts = [
     {
       id: 2,
-      title: "Market Trends in New Jersey Real Estate",
+      title:
+        "Understanding the USPAP Guidelines: What Every Property Owner Should Know",
       excerpt:
-        "Current market analysis and trends affecting property values across the state.",
-      date: "March 10, 2024",
-      category: "Market Analysis",
+        "Learn about the Uniform Standards of Professional Appraisal Practice and how they protect property owners during the appraisal process.",
+      date: "December 12, 2024",
+      readTime: "6 min read",
+      category: "Education",
+      author: "Sarah Mitchell, SRA",
+      image:
+        "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop",
+      tags: ["USPAP", "Standards", "Professional Practice"],
     },
     {
       id: 3,
-      title: "Preparing Your Home for an Appraisal",
+      title: "Commercial Property Valuations: Key Factors That Drive Value",
       excerpt:
-        "Tips and best practices to ensure your property shows its true value.",
-      date: "March 5, 2024",
+        "Discover the unique considerations that go into commercial real estate appraisals and how they differ from residential properties.",
+      date: "December 10, 2024",
+      readTime: "7 min read",
+      category: "Commercial",
+      author: "David Rodriguez, MAI",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop",
+      tags: ["Commercial", "Valuation", "Investment"],
+    },
+    {
+      id: 4,
+      title:
+        "How Rising Interest Rates Are Affecting New Jersey Property Values",
+      excerpt:
+        "An in-depth look at the correlation between interest rates and property values, with specific data from New Jersey markets.",
+      date: "December 8, 2024",
+      readTime: "5 min read",
+      category: "Market Analysis",
+      author: "Michael Thompson, MAI",
+      image:
+        "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=250&fit=crop",
+      tags: ["Interest Rates", "Market Trends", "Economics"],
+    },
+    {
+      id: 5,
+      title:
+        "Preparing Your Home for Maximum Appraisal Value: A Complete Checklist",
+      excerpt:
+        "Practical tips and strategies to ensure your property shows its best value during an appraisal inspection.",
+      date: "December 5, 2024",
+      readTime: "4 min read",
       category: "Tips",
+      author: "Sarah Mitchell, SRA",
+      image:
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=250&fit=crop",
+      tags: ["Home Preparation", "Value Maximization", "Tips"],
+    },
+    {
+      id: 6,
+      title: "Estate Appraisals: Navigating Complex Valuation Challenges",
+      excerpt:
+        "Understanding the unique requirements and challenges involved in estate and probate property appraisals.",
+      date: "December 3, 2024",
+      readTime: "6 min read",
+      category: "Legal",
+      author: "David Rodriguez, MAI",
+      image:
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop",
+      tags: ["Estate Planning", "Probate", "Legal"],
+    },
+    {
+      id: 7,
+      title:
+        "Technology in Real Estate Appraisals: Modern Tools for Accurate Valuations",
+      excerpt:
+        "Explore how cutting-edge technology is enhancing the accuracy and efficiency of property appraisals.",
+      date: "November 30, 2024",
+      readTime: "5 min read",
+      category: "Technology",
+      author: "Michael Thompson, MAI",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
+      tags: ["Technology", "Innovation", "Tools"],
     },
   ];
+
+  const categories = [
+    { name: "Market Analysis", icon: TrendingUp, count: 8 },
+    { name: "Education", icon: BookOpen, count: 12 },
+    { name: "Tips", icon: Star, count: 6 },
+    { name: "Commercial", icon: Home, count: 5 },
+    { name: "Legal", icon: FileText, count: 4 },
+    { name: "Technology", icon: AlertCircle, count: 3 },
+  ];
+
+  const getCategoryColor = (category: string) => {
+    const colors: { [key: string]: string } = {
+      "Market Analysis": "bg-blue-100 text-blue-800",
+      Education: "bg-green-100 text-green-800",
+      Tips: "bg-yellow-100 text-yellow-800",
+      Commercial: "bg-purple-100 text-purple-800",
+      Legal: "bg-red-100 text-red-800",
+      Technology: "bg-indigo-100 text-indigo-800",
+    };
+    return colors[category] || "bg-gray-100 text-gray-800";
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -44,33 +155,226 @@ export default function Blog() {
         variant="gradient"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {placeholderPosts.map((post) => (
-            <Card
-              key={post.id}
-              className="hover:shadow-lg transition-shadow cursor-pointer"
-            >
-              <CardHeader>
-                <div className="flex justify-between items-start mb-2">
-                  <Badge variant="secondary">{post.category}</Badge>
-                  <span className="text-sm text-gray-500">{post.date}</span>
-                </div>
-                <CardTitle className="text-lg leading-tight">
-                  {post.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">{post.excerpt}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      {/* Featured Post */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Featured Article
+            </h2>
+          </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600">More blog posts coming soon...</p>
+          <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+            <div className="md:flex">
+              <div className="md:w-1/2">
+                <img
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div className="md:w-1/2 p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <Badge className={getCategoryColor(featuredPost.category)}>
+                    {featuredPost.category}
+                  </Badge>
+                  <span className="text-sm text-gray-500 flex items-center">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    {featuredPost.date}
+                  </span>
+                  <span className="text-sm text-gray-500 flex items-center">
+                    <Clock className="w-4 h-4 mr-1" />
+                    {featuredPost.readTime}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+                  {featuredPost.title}
+                </h3>
+
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {featuredPost.excerpt}
+                </p>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <User className="w-4 h-4 text-gray-400 mr-2" />
+                    <span className="text-sm text-gray-600">
+                      {featuredPost.author}
+                    </span>
+                  </div>
+                  <Button variant="outline" className="group">
+                    Read Full Article
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
-      </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Blog Posts */}
+            <div className="lg:col-span-3">
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Latest Articles
+                </h2>
+                <p className="text-gray-600">
+                  Expert insights and practical advice from our certified
+                  appraisal team.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {blogPosts.map((post) => (
+                  <Card
+                    key={post.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer"
+                  >
+                    <div className="relative">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <Badge className={getCategoryColor(post.category)}>
+                          {post.category}
+                        </Badge>
+                      </div>
+                    </div>
+
+                    <CardHeader>
+                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-2">
+                        <span className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          {post.date}
+                        </span>
+                        <span className="flex items-center">
+                          <Clock className="w-4 h-4 mr-1" />
+                          {post.readTime}
+                        </span>
+                      </div>
+                      <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                        {post.title}
+                      </CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                      <p className="text-gray-600 mb-4">{post.excerpt}</p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center text-sm text-gray-500">
+                          <User className="w-4 h-4 mr-1" />
+                          {post.author}
+                        </div>
+                        <Button variant="ghost" size="sm" className="group">
+                          Read More
+                          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Load More */}
+              <div className="text-center mt-12">
+                <Button variant="outline" size="lg">
+                  Load More Articles
+                </Button>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              {/* Categories */}
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="text-lg">Categories</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {categories.map((category) => (
+                      <Link
+                        key={category.name}
+                        to={`/blog/category/${category.name.toLowerCase()}`}
+                        className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                      >
+                        <div className="flex items-center">
+                          <category.icon className="w-4 h-4 text-primary mr-3" />
+                          <span className="text-gray-700 group-hover:text-primary">
+                            {category.name}
+                          </span>
+                        </div>
+                        <span className="text-sm text-gray-500">
+                          {category.count}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Newsletter Signup */}
+              <Card className="mb-8 bg-primary text-white">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white">
+                    Stay Updated
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-blue-100 mb-4">
+                    Get the latest appraisal insights and market updates
+                    delivered to your inbox.
+                  </p>
+                  <Button
+                    variant="secondary"
+                    className="w-full bg-white text-primary hover:bg-gray-100"
+                  >
+                    Subscribe to Newsletter
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Popular Tags */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-lg">Popular Tags</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "USPAP",
+                      "Market Trends",
+                      "Home Values",
+                      "Commercial",
+                      "Investment",
+                      "Legal",
+                      "Technology",
+                      "Tips",
+                    ].map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="outline"
+                        className="cursor-pointer hover:bg-primary hover:text-white transition-colors"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
