@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import QuoteRequest from "@/components/QuoteRequest";
 import ProtectedContact from "@/components/ProtectedContact";
+import AppraisalCTA from "@/components/AppraisalCTA";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -159,8 +160,13 @@ export default function Index() {
                   Get Free Quote
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8">
-                  Learn More
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8"
+                  asChild
+                >
+                  <Link to="/services">Learn More</Link>
                 </Button>
               </div>
             </div>
@@ -282,38 +288,10 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Contact us today for a free quote on your real estate appraisal
-            needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-lg px-8"
-              asChild
-            >
-              <Link to="/contact">
-                Get Free Quote
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-lg px-8 bg-white text-primary hover:bg-gray-100"
-            >
-              Call <ProtectedContact type="phone" />
-            </Button>
-          </div>
-        </div>
-      </section>
+      <AppraisalCTA
+        title="Ready to Get Started?"
+        description="Contact us today for a free quote on your real estate appraisal needs."
+      />
 
       <Footer />
     </div>
