@@ -118,14 +118,34 @@ export default function Blog() {
     },
   ];
 
+  // Combine featured post and blog posts for counting
+  const allPosts = [featuredPost, ...blogPosts];
+
+  // Dynamically count posts by category
+  const getCategoryCount = (categoryName: string): number => {
+    return allPosts.filter((post) => post.category === categoryName).length;
+  };
+
   const categories = [
-    { name: "Market Analysis", icon: TrendingUp, count: 8 },
-    { name: "Education", icon: BookOpen, count: 12 },
-    { name: "Tips", icon: Star, count: 6 },
-    { name: "Commercial", icon: Home, count: 5 },
-    { name: "Legal", icon: FileText, count: 4 },
-    { name: "Technology", icon: AlertCircle, count: 3 },
-  ];
+    {
+      name: "Market Analysis",
+      icon: TrendingUp,
+      count: getCategoryCount("Market Analysis"),
+    },
+    { name: "Education", icon: BookOpen, count: getCategoryCount("Education") },
+    { name: "Tips", icon: Star, count: getCategoryCount("Tips") },
+    { name: "Commercial", icon: Home, count: getCategoryCount("Commercial") },
+    { name: "Legal", icon: FileText, count: getCategoryCount("Legal") },
+  ].filter((category) => category.count > 0); // Only show categories that have posts
+
+  // Filter posts based on selected category
+  const filteredPosts = selectedCategory
+    ? blogPosts.filter((post) => post.category === selectedCategory)
+    : blogPosts;
+
+  // Check if featured post should be shown (when no filter or matches filter)
+  const showFeaturedPost =
+    !selectedCategory || featuredPost.category === selectedCategory;
 
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
