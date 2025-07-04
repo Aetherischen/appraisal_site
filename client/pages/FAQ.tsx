@@ -23,12 +23,12 @@ export default function FAQ() {
         {
           question: "What is a real estate appraisal?",
           answer:
-            "A real estate appraisal is an unbiased professional opinion of a property's value conducted by a licensed appraiser. The appraiser evaluates the property's condition, location, and recent sales of comparable properties to determine its fair market value.",
+            "A real estate appraisal is an unbiased professional opinion of a property's fair market value conducted by a licensed New Jersey real estate appraiser. The certified appraiser evaluates the property's condition, location, neighborhood characteristics, and recent sales of comparable properties in Bergen County, Passaic County, Essex County, or your specific NJ area to determine an accurate market value following USPAP guidelines.",
         },
         {
           question: "Why do I need an appraisal?",
           answer:
-            "Appraisals are commonly needed for mortgage loans, refinancing, property sales, estate planning, divorce proceedings, tax appeals, insurance claims, and legal disputes. Lenders require appraisals to ensure the property value supports the loan amount.",
+            "New Jersey property appraisals are commonly needed for mortgage loans, home refinancing, property sales and purchases, estate planning and probate, divorce proceedings, property tax appeals, insurance claims, PMI removal, and legal disputes. New Jersey lenders and courts require certified appraisals to ensure the property value supports the loan amount or legal proceedings. Licensed NJ appraisers provide USPAP-compliant valuations for all residential, commercial, and land properties.",
         },
         {
           question: "How long does an appraisal take?",
