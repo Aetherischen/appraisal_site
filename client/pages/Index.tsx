@@ -20,28 +20,49 @@ import {
 
 export default function Index() {
   useEffect(() => {
-    // Check if URL hash is #quote-request (from navigation)
-    if (window.location.hash === "#quote-request") {
-      // Scroll to the quote request section
-      const element = document.getElementById("quote-request");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
+    const handleHashChange = () => {
+      if (window.location.hash === "#quote-request") {
+        setTimeout(() => {
+          const element = document.getElementById("quote-request");
+          if (element) {
+            // Scroll to the quote request section
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
 
-        // Add breathing effect class
-        const container = element.querySelector(".quote-request-container");
-        if (container) {
-          container.classList.add("breathing-effect");
+            // Add breathing effect class
+            const container = element.querySelector(".quote-request-container");
+            if (container) {
+              // Remove any existing effect first
+              container.classList.remove("breathing-effect");
 
-          // Remove the effect after 10 seconds
+              // Add the effect after a small delay to ensure it's visible
+              setTimeout(() => {
+                container.classList.add("breathing-effect");
+
+                // Remove the effect after 15 seconds
+                setTimeout(() => {
+                  container.classList.remove("breathing-effect");
+                }, 15000);
+              }, 100);
+            }
+          }
+
+          // Clean up the hash from URL after a delay
           setTimeout(() => {
-            container.classList.remove("breathing-effect");
-          }, 10000);
-        }
+            window.history.replaceState(null, "", window.location.pathname);
+          }, 1000);
+        }, 100);
       }
+    };
 
-      // Clean up the hash from URL
-      window.history.replaceState(null, "", window.location.pathname);
-    }
+    // Check on mount
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
 
   const services = [
