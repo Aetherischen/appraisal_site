@@ -34,7 +34,7 @@ export default function PreparingYourNJHomeForAppraisal() {
             <div className="flex flex-wrap items-center gap-6 text-gray-600">
               <div className="flex items-center">
                 <User className="w-4 h-4 mr-2" />
-                <span>Sarah Mitchell, SRA</span>
+                <span>Albert Zaccone, ASA</span>
               </div>
               <div className="flex items-center">
                 <Calendar className="w-4 h-4 mr-2" />
