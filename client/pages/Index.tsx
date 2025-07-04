@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -21,6 +21,16 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 3) % testimonials.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   useEffect(() => {
     const handleHashChange = () => {
       if (window.location.hash === "#quote-request") {
@@ -112,72 +122,62 @@ export default function Index() {
   const testimonials = [
     {
       name: "Brandon Higgins",
-      role: "Property Owner",
       content:
-        "Al is an expert in the appraisal field and provided such a detailed look into my property. I greatly appreciate his research and quick turnaround time. I will absolutely be using his services again in the future and could not recommend him more.",
+        "Al is an expert in the appraisal field and provided such a detailed look into my property. I greatly appreciate his research and quick turnaround time.",
       rating: 5,
     },
     {
       name: "Gina Sarwari",
-      role: "Client",
       content:
-        "Al Zaccone has consistently demonstrated a high level of professionalism, dedication, and skill throughout. They have exceeded expectations in key performance areas, contributed positively to team dynamics, and maintained a strong commitment to organizational goals. Would recommend 100%.",
+        "Al Zaccone has consistently demonstrated a high level of professionalism, dedication, and skill throughout. Would recommend 100%.",
       rating: 5,
     },
     {
       name: "Musbah Zakkour",
-      role: "Homeowner",
       content:
-        "Very glad I chose this company for my appraisal. Al was very helpful; he got the work done quickly and explained everything. Will be calling him again with more work in the future.",
+        "Very glad I chose this company for my appraisal. Al was very helpful; he got the work done quickly and explained everything.",
       rating: 5,
     },
     {
       name: "Alex Marie",
-      role: "Client",
       content:
-        "Al is one of the best in the business. He really cares about his clients. He also provided us the best appraisal opinion out there. I highly recommend him for your appraisal needs!",
+        "Al is one of the best in the business. He really cares about his clients. I highly recommend him for your appraisal needs!",
       rating: 5,
     },
     {
       name: "Danielle",
-      role: "Homeowner",
       content:
-        "Amazing Experience! There were so many appraisal companies to choose from, but I have to say I am so happy we went with CSR Realty Appraisers. They were very friendly, professional and knowledgeable. They made the process very quick and easy and we can tell had many years of experience. I highly recommend them!",
+        "Amazing Experience! CSR Realty Appraisers were very friendly, professional and knowledgeable. They made the process very quick and easy.",
       rating: 5,
     },
     {
       name: "Cihan Unsal",
-      role: "Property Owner",
       content:
-        "When it comes to property appraisals, you need someone who is not only knowledgeable and professional but also approachable and reliable. Mr. Zaccone embodies all these qualities and more. His expertise in the field is evident.",
+        "When it comes to property appraisals, you need someone who is knowledgeable and professional. Mr. Zaccone embodies all these qualities and more.",
       rating: 5,
     },
     {
       name: "Ralph Rossi",
-      role: "Real Estate Professional",
       content:
-        "Since 1982 I have been in the profession in building, selling and purchasing of Real Estate and find CSR very professional and fair in pricing. Report came in with much information and value was spot on.",
+        "Since 1982 I have been in Real Estate and find CSR very professional and fair in pricing. Report came in with much information and value was spot on.",
       rating: 5,
     },
     {
       name: "Anish Ari",
-      role: "Client",
       content:
-        "Working with Al from CSR Realty Appraisers was a fantastic experience! His technical knowledge and expertise stood out to me immediately. Al took the time to walk me through every step of the appraisal process, explaining complex details clearly.",
+        "Working with Al from CSR Realty Appraisers was a fantastic experience! His technical knowledge and expertise stood out immediately.",
       rating: 5,
     },
     {
       name: "TJ Caleca",
-      role: "Client",
       content:
-        "Al was a pleasure to work with from the moment we engaged his services. He has a broad knowledge base of numerous markets and asset classes and provides a 'family'-like experience to all of his clients; you'll feel like you've known him for 30 years. A great guy and as qualified and experienced a professional as you'll meet.",
+        "Al was a pleasure to work with. He has a broad knowledge base and provides a 'family'-like experience to all of his clients.",
       rating: 5,
     },
     {
       name: "Marina Natovich",
-      role: "Property Owner",
       content:
-        "I recently worked with Al to obtain an appraisal for my property. Overall, I was very satisfied with the professionalism of his service. Al was able to schedule an appointment quickly, was very knowledgeable and helpful throughout the process.",
+        "I was very satisfied with the professionalism of his service. Al was able to schedule an appointment quickly and was very knowledgeable.",
       rating: 5,
     },
   ];
@@ -317,30 +317,47 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="text-center">
-                <CardContent className="pt-6">
-                  <div className="flex justify-center mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials
+              .slice(currentTestimonial, currentTestimonial + 3)
+              .map((testimonial, index) => (
+                <div
+                  key={currentTestimonial + index}
+                  className="bg-white rounded-lg p-6 shadow-md"
+                >
+                  <div className="flex justify-center mb-3">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-5 h-5 text-yellow-400 fill-current"
+                        className="w-4 h-4 text-yellow-400 fill-current"
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-6 italic">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4 italic">
                     "{testimonial.content}"
                   </p>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <h4 className="font-semibold text-gray-900 text-sm">
+                    {testimonial.name}
+                  </h4>
+                </div>
+              ))}
+          </div>
+
+          {/* Carousel indicators */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {Array.from({ length: Math.ceil(testimonials.length / 3) }).map(
+              (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index * 3)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    Math.floor(currentTestimonial / 3) === index
+                      ? "bg-primary"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ),
+            )}
           </div>
         </div>
       </section>
