@@ -7,8 +7,6 @@ import ProtectedContact from "@/components/ProtectedContact";
 import AppraisalCTA from "@/components/AppraisalCTA";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { BUSINESS_CONTACT } from "@/lib/constants";
 import {
   Home,
   Building,
@@ -17,7 +15,6 @@ import {
   Users,
   CheckCircle,
   Star,
-  ArrowRight,
 } from "lucide-react";
 
 export default function Index() {
