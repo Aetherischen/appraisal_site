@@ -24,14 +24,6 @@ export default function Index() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 3) % testimonials.length);
-    }, 4000); // Change every 4 seconds
-
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
-  useEffect(() => {
     const handleHashChange = () => {
       if (window.location.hash === "#quote-request") {
         setTimeout(() => {
