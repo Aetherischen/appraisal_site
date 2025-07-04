@@ -13,11 +13,12 @@ const Footer = () => {
                 <Home className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900">
-                Premier Appraisal
+                CSR Realty Appraisers
               </span>
             </div>
             <p className="text-gray-600">
-              Professional real estate appraisal services throughout New Jersey.
+              New Jersey's trusted real estate appraisal experts delivering
+              responsible, efficient, and reliable appraisal services.
             </p>
           </div>
           <div>
@@ -80,12 +81,13 @@ const Footer = () => {
               <li>{BUSINESS_CONTACT.address}</li>
               <li>{BUSINESS_CONTACT.phone}</li>
               <li>{BUSINESS_CONTACT.email}</li>
+              <li>{BUSINESS_CONTACT.hours}</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <p>© 2024 Premier Appraisal Services. All rights reserved.</p>
+            <p>© 2024 CSR Realty Appraisers. All rights reserved.</p>
             <div className="flex gap-4 text-sm">
               <Link
                 to="/privacy-policy"
