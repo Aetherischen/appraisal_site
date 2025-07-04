@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -8,16 +7,6 @@ import ProtectedContact from "@/components/ProtectedContact";
 import AppraisalCTA from "@/components/AppraisalCTA";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-=======
-import { useEffect } from "react";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import QuoteRequest from "@/components/QuoteRequest";
-import CallToAction from "@/components/CallToAction";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
->>>>>>> origin/main
 import {
   Home,
   Building,
@@ -323,15 +312,10 @@ export default function Index() {
         </div>
       </section>
 
-<<<<<<< HEAD
       <AppraisalCTA
         title="Ready to Get Started?"
         description="Contact us today for a free quote on your real estate appraisal needs."
       />
-=======
-      {/* CTA Section */}
-      <CallToAction />
->>>>>>> origin/main
 
       <Footer />
     </div>
