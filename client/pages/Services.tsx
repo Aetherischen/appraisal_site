@@ -27,6 +27,7 @@ import {
   Gavel,
   FileText,
   Search,
+  Award,
 } from "lucide-react";
 
 export default function Services() {
