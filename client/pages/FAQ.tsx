@@ -38,6 +38,22 @@ export default function FAQ() {
           answer:
             "Key factors include location, property size, condition, age, recent renovations, comparable sales, market trends, neighborhood amenities, school districts, and local economic conditions.",
         },
+        {
+          question: "When should I hire an appraiser?",
+          answer:
+            "You should hire an appraiser for mortgages, loans, tax assessments, estate settlements, property sales and purchases, legal disputes, divorce proceedings, insurance claims, and PMI removal. An appraisal provides an unbiased professional opinion of your property's value.",
+        },
+        {
+          question: "What's included in an appraisal report?",
+          answer:
+            "An appraisal report includes the purpose of the appraisal, property value determination, effective date, detailed property characteristics (location, features, defects, legal attributes), economic factors affecting value, and the methodology used to determine the value.",
+        },
+        {
+          question:
+            "What's the difference between an appraisal and a home inspection?",
+          answer:
+            "An appraisal determines the fair market value of a property for financing, legal, or transaction purposes. A home inspection assesses the structural condition, safety, and mechanical systems of a property. Both serve different but complementary purposes in real estate transactions.",
+        },
       ],
     },
     {
@@ -65,6 +81,16 @@ export default function FAQ() {
           answer:
             "Yes, you can provide information about recent improvements, comparable sales you're aware of, or unique features. However, the appraiser must independently verify all information and form their own professional opinion.",
         },
+        {
+          question: "What data sources do appraisers use?",
+          answer:
+            "CSR Realty Appraisers uses MLS data, tax records, public documents, our extensive electronic database, professional associations, and comparative market studies. We maintain comprehensive data to ensure accurate market analysis for all property types throughout New Jersey.",
+        },
+        {
+          question: "Who can see my appraisal report?",
+          answer:
+            "The confidentiality of your appraisal report depends on who commissioned it (lender, homeowner, attorney, etc.). CSR Realty Appraisers adheres to strict confidentiality standards and only discloses information with proper client authorization, protecting your data and privacy.",
+        },
       ],
     },
     {
@@ -91,6 +117,11 @@ export default function FAQ() {
           question: "When will I receive the appraisal report?",
           answer:
             "Standard turnaround time is 2-5 business days after the inspection. Rush orders can be completed in 24-48 hours. We'll provide an estimated delivery date when you place your order.",
+        },
+        {
+          question: "What property types can CSR appraise?",
+          answer:
+            "CSR Realty Appraisers handles all property types including residential (single-family homes, condos, townhouses, multi-family), commercial (retail, hotels, offices), land and agricultural properties, new construction, mobile homes, and specialty properties. We serve all of New Jersey with expertise in each property category.",
         },
       ],
     },
@@ -241,7 +272,7 @@ export default function FAQ() {
                 <p className="text-gray-600 mb-4">
                   Speak directly with our appraisal experts
                 </p>
-                <Badge variant="secondary">(555) 123-4567</Badge>
+                <Badge variant="secondary">{BUSINESS_CONTACT.phone}</Badge>
               </CardContent>
             </Card>
 
