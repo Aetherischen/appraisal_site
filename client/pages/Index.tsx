@@ -278,37 +278,7 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Contact us today for a free quote on your real estate appraisal
-            needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-lg px-8"
-              asChild
-            >
-              <Link to="/contact">
-                Get Free Quote
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-lg px-8 bg-white text-primary hover:bg-gray-100"
-            >
-              Call {BUSINESS_CONTACT.phone}
-            </Button>
-          </div>
-        </div>
-      </section>
+      <CallToAction />
 
       <Footer />
     </div>
