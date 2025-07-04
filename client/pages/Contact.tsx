@@ -88,10 +88,13 @@ export default function Contact() {
         <div className="mt-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Our Location
+              New Jersey Real Estate Appraisal Office Location
             </h2>
             <p className="text-xl text-gray-600">
-              Serving all of New Jersey from our Wallington office
+              Licensed New Jersey real estate appraisers serving all NJ counties
+              from our Wallington, Bergen County office. Convenient access to
+              Passaic County, Essex County, Morris County, Hudson County, and
+              surrounding areas.
             </p>
           </div>
 
