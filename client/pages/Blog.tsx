@@ -52,7 +52,7 @@ export default function Blog() {
       date: "December 12, 2024",
       readTime: "10 min read",
       category: "Education",
-      author: "Michael Thompson, MAI",
+      author: "Albert Zaccone, ASA",
       image:
         "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop",
       tags: ["USPAP", "Standards", "Professional Practice"],
