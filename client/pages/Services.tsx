@@ -36,9 +36,9 @@ export default function Services() {
   const services = [
     {
       icon: Home,
-      title: "Residential Appraisals",
+      title: "New Jersey Residential Property Appraisals",
       description:
-        "Comprehensive valuations for single-family homes, condominiums, townhouses, duplexes, triplexes, mobile homes, cottages, co-ops, high/low-rise units, and vacant land. Services include buying/selling, financing, refinancing, divorce settlements, estate valuation, property tax assessments, pre-listing services, insurance assessments, and foreclosures.",
+        "Comprehensive residential real estate valuations for single-family homes, condominiums, townhouses, duplexes, triplexes, mobile homes, cottages, co-ops, high/low-rise units, and vacant land throughout Bergen County, Passaic County, Essex County, and all NJ counties. Licensed appraisal services include home buying/selling, mortgage refinancing, divorce settlements, estate planning, property tax appeals, pre-listing valuations, insurance assessments, and foreclosure appraisals.",
       color: "bg-blue-500",
       gradient: "from-blue-50 to-blue-100",
       features: [
@@ -50,9 +50,9 @@ export default function Services() {
     },
     {
       icon: Building2,
-      title: "Commercial Appraisals",
+      title: "Commercial Real Estate Appraisals NJ",
       description:
-        "Professional valuations for retail properties, hotels, motels, offices, and development lands using specialized methodologies. Our commercial appraisals support investment analysis, financing, litigation, and lease disputes with comprehensive market analysis.",
+        "Professional commercial property valuations for retail buildings, hotels, motels, office complexes, warehouses, and development lands throughout New Jersey using MAI-certified methodologies. Our certified commercial appraisals support investment analysis, bank financing, SBA loans, litigation support, and lease disputes with comprehensive New Jersey market analysis and income approach valuations.",
       color: "bg-green-500",
       gradient: "from-green-50 to-green-100",
       features: [
@@ -64,9 +64,9 @@ export default function Services() {
     },
     {
       icon: TreePine,
-      title: "Land & Agricultural Appraisals",
+      title: "New Jersey Land & Agricultural Property Appraisals",
       description:
-        "Specialized valuations for vacant lots, agricultural land, and rural acreages. Our land appraisals support purchase/sales, development feasibility studies, litigation, zoning research, and condemned property assessments with detailed highest and best use analysis.",
+        "Specialized land valuations for vacant lots, agricultural farmland, rural acreages, and developable parcels throughout New Jersey including Bergen County, Passaic County, Sussex County, Warren County, and Morris County. Our certified land appraisals support property purchase/sales, development feasibility studies, zoning variance applications, litigation support, eminent domain proceedings, and condemned property assessments with detailed highest and best use analysis for New Jersey properties.",
       color: "bg-emerald-500",
       gradient: "from-emerald-50 to-emerald-100",
       features: [
