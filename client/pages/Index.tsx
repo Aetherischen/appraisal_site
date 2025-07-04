@@ -111,24 +111,73 @@ export default function Index() {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Brandon Higgins",
+      role: "Property Owner",
+      content:
+        "Al is an expert in the appraisal field and provided such a detailed look into my property. I greatly appreciate his research and quick turnaround time. I will absolutely be using his services again in the future and could not recommend him more.",
+      rating: 5,
+    },
+    {
+      name: "Gina Sarwari",
+      role: "Client",
+      content:
+        "Al Zaccone has consistently demonstrated a high level of professionalism, dedication, and skill throughout. They have exceeded expectations in key performance areas, contributed positively to team dynamics, and maintained a strong commitment to organizational goals. Would recommend 100%.",
+      rating: 5,
+    },
+    {
+      name: "Musbah Zakkour",
       role: "Homeowner",
       content:
-        "CSR Realty Appraisers provided an accurate, professional appraisal for our refinancing. Albert was thorough and explained everything clearly.",
+        "Very glad I chose this company for my appraisal. Al was very helpful; he got the work done quickly and explained everything. Will be calling him again with more work in the future.",
       rating: 5,
     },
     {
-      name: "Mike Chen",
-      role: "Real Estate Attorney",
+      name: "Alex Marie",
+      role: "Client",
       content:
-        "CSR is my go-to for all client appraisal needs. Their USPAP-compliant reports are always reliable and well-documented.",
+        "Al is one of the best in the business. He really cares about his clients. He also provided us the best appraisal opinion out there. I highly recommend him for your appraisal needs!",
       rating: 5,
     },
     {
-      name: "Jennifer Davis",
-      role: "Financial Institution",
+      name: "Danielle",
+      role: "Homeowner",
       content:
-        "Excellent service for our lending needs. CSR consistently delivers accurate valuations on time.",
+        "Amazing Experience! There were so many appraisal companies to choose from, but I have to say I am so happy we went with CSR Realty Appraisers. They were very friendly, professional and knowledgeable. They made the process very quick and easy and we can tell had many years of experience. I highly recommend them!",
+      rating: 5,
+    },
+    {
+      name: "Cihan Unsal",
+      role: "Property Owner",
+      content:
+        "When it comes to property appraisals, you need someone who is not only knowledgeable and professional but also approachable and reliable. Mr. Zaccone embodies all these qualities and more. His expertise in the field is evident.",
+      rating: 5,
+    },
+    {
+      name: "Ralph Rossi",
+      role: "Real Estate Professional",
+      content:
+        "Since 1982 I have been in the profession in building, selling and purchasing of Real Estate and find CSR very professional and fair in pricing. Report came in with much information and value was spot on.",
+      rating: 5,
+    },
+    {
+      name: "Anish Ari",
+      role: "Client",
+      content:
+        "Working with Al from CSR Realty Appraisers was a fantastic experience! His technical knowledge and expertise stood out to me immediately. Al took the time to walk me through every step of the appraisal process, explaining complex details clearly.",
+      rating: 5,
+    },
+    {
+      name: "TJ Caleca",
+      role: "Client",
+      content:
+        "Al was a pleasure to work with from the moment we engaged his services. He has a broad knowledge base of numerous markets and asset classes and provides a 'family'-like experience to all of his clients; you'll feel like you've known him for 30 years. A great guy and as qualified and experienced a professional as you'll meet.",
+      rating: 5,
+    },
+    {
+      name: "Marina Natovich",
+      role: "Property Owner",
+      content:
+        "I recently worked with Al to obtain an appraisal for my property. Overall, I was very satisfied with the professionalism of his service. Al was able to schedule an appointment quickly, was very knowledgeable and helpful throughout the process.",
       rating: 5,
     },
   ];
