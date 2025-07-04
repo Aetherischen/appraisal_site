@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { BUSINESS_CONTACT } from "@/lib/constants";
 import {
   Award,
   Users,
@@ -17,66 +18,36 @@ import {
   TrendingUp,
   Target,
   Heart,
+  FileText,
+  Building,
+  Scale,
 } from "lucide-react";
 
 export default function About() {
-  const teamMembers = [
-    {
-      name: "Michael Thompson",
-      role: "Lead Certified Appraiser",
-      credentials: "MAI, SRA",
-      experience: "20+ years",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      description:
-        "Specializes in residential and commercial properties with extensive experience in complex valuations.",
-    },
-    {
-      name: "Sarah Mitchell",
-      role: "Senior Residential Appraiser",
-      credentials: "SRA, AI-RRS",
-      experience: "15+ years",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=300&h=300&fit=crop&crop=face",
-      description:
-        "Expert in residential appraisals with deep knowledge of New Jersey housing markets.",
-    },
-    {
-      name: "David Rodriguez",
-      role: "Commercial Property Specialist",
-      credentials: "MAI, CCIM",
-      experience: "18+ years",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      description:
-        "Focuses on commercial real estate valuations and investment property analysis.",
-    },
-  ];
-
   const values = [
     {
       icon: Target,
       title: "Accuracy",
       description:
-        "We strive for precision in every appraisal, using the latest market data and proven methodologies.",
+        "We strive for precision in every appraisal, using the latest market data and proven methodologies adhering to USPAP standards.",
     },
     {
       icon: Clock,
-      title: "Timeliness",
+      title: "Efficiency",
       description:
-        "We understand the importance of deadlines and deliver comprehensive reports on schedule.",
+        "We understand the importance of deadlines and deliver comprehensive reports responsibly and on schedule.",
     },
     {
       icon: Heart,
-      title: "Integrity",
+      title: "Ethics",
       description:
-        "Our appraisals are unbiased, ethical, and adhere to the highest professional standards.",
+        "Our appraisals are unbiased, ethical, and adhere to the highest professional standards with strict confidentiality.",
     },
     {
       icon: Users,
       title: "Service",
       description:
-        "We prioritize clear communication and exceptional customer service throughout the process.",
+        "We act in good faith to meet client needs with exceptional customer service and clear communication throughout the process.",
     },
   ];
 
@@ -84,28 +55,49 @@ export default function About() {
     {
       icon: Award,
       title: "Certified Excellence",
-      description:
-        "All appraisers hold state licenses and professional certifications",
-      stat: "100%",
-    },
-    {
-      icon: TrendingUp,
-      title: "Market Experience",
-      description: "Combined decades of experience in New Jersey real estate",
-      stat: "50+ Years",
+      description: "Certified members of the American Society of Appraisers",
+      stat: "ASA Certified",
     },
     {
       icon: Shield,
+      title: "USPAP Compliant",
+      description:
+        "Adheres to Uniform Standards of Professional Appraisal Practice",
+      stat: "Fully Compliant",
+    },
+    {
+      icon: TrendingUp,
       title: "Professional Standards",
-      description: "Fully insured and bonded for your protection",
-      stat: "E&O Insured",
+      description: "Fully insured against all liability for your protection",
+      stat: "Fully Insured",
     },
     {
       icon: Star,
-      title: "Client Satisfaction",
+      title: "Statewide Service",
       description:
-        "Consistently high ratings from clients and industry partners",
-      stat: "98%",
+        "Serving all of New Jersey with extensive electronic database",
+      stat: "All NJ Counties",
+    },
+  ];
+
+  const services = [
+    {
+      icon: FileText,
+      title: "Residential Appraisals",
+      description:
+        "Single-family homes, condos, townhouses, duplexes, triplexes, mobile homes, cottages, co-ops, and vacant land",
+    },
+    {
+      icon: Building,
+      title: "Commercial Appraisals",
+      description:
+        "Retail properties, hotels, motels, offices, and development lands with specialized valuation approaches",
+    },
+    {
+      icon: Scale,
+      title: "Legal & Advisory Services",
+      description:
+        "Expert witness testimony, litigation support, feasibility studies, lease rate surveys, and assessment appeals",
     },
   ];
 
@@ -114,10 +106,10 @@ export default function About() {
       <Navigation />
 
       <PageHeader
-        badge="About Premier Appraisal"
+        badge="About CSR Realty Appraisers"
         title="New Jersey's Trusted"
-        subtitle="Appraisal Experts"
-        description="With decades of combined experience, we provide accurate, reliable real estate valuations throughout New Jersey. Our certified team delivers professional service with integrity and precision."
+        subtitle="Real Estate Appraisal Experts"
+        description="Founded and operated by Albert Zaccone, CSR Realty Appraisers delivers responsible, efficient, and reliable real estate appraisals throughout New Jersey, adhering to the highest standards of professionalism and ethics."
         variant="gradient"
       />
 
@@ -130,23 +122,29 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Founded in 2008, Premier Appraisal Services has been serving New
-                Jersey with professional real estate valuations for over 15
-                years. What started as a small team of dedicated appraisers has
-                grown into one of the state's most trusted appraisal firms.
+                CSR Realty Appraisers was founded and is operated by Albert
+                Zaccone, a certified appraiser with a proven track record of
+                providing accurate, USPAP-compliant appraisals across New
+                Jersey. Our mission is to deliver responsible, efficient, and
+                reliable real estate appraisals and advisory services.
               </p>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Our success is built on a foundation of accuracy, integrity, and
-                exceptional customer service. We've completed thousands of
-                appraisals across residential, commercial, and specialty
-                properties, earning the trust of homeowners, real estate
-                professionals, lenders, and legal professionals throughout New
-                Jersey.
+                Our team consists of licensed professionals experienced in
+                residential, commercial, and land appraisals. We serve a diverse
+                client base including homeowners, real estate buyers and
+                sellers, attorneys, accountants, financial institutions, and
+                government agencies throughout New Jersey.
+              </p>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                We maintain an extensive electronic database for accurate market
+                analysis, supporting all types of real estate transactions while
+                adhering to strict confidentiality standards and protecting
+                client data.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Badge variant="secondary" className="text-sm py-2 px-4">
                   <CheckCircle className="w-4 h-4 mr-2" />
-                  Licensed & Certified
+                  ASA Certified
                 </Badge>
                 <Badge variant="secondary" className="text-sm py-2 px-4">
                   <Shield className="w-4 h-4 mr-2" />
@@ -154,7 +152,7 @@ export default function About() {
                 </Badge>
                 <Badge variant="secondary" className="text-sm py-2 px-4">
                   <Award className="w-4 h-4 mr-2" />
-                  Professional Standards
+                  USPAP Compliant
                 </Badge>
               </div>
             </div>
@@ -205,49 +203,87 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Leadership Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Meet Our Team
+              Leadership
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our certified appraisers bring decades of combined experience and
-              deep knowledge of New Jersey real estate markets.
+              Led by certified expertise and deep knowledge of New Jersey real
+              estate markets.
+            </p>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <Card className="text-center hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="relative mx-auto mb-4">
+                  <img
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+                    alt="Albert Zaccone"
+                    className="w-32 h-32 rounded-full object-cover mx-auto"
+                  />
+                  <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                    <Award className="w-5 h-5 text-white" />
+                  </div>
+                </div>
+                <CardTitle className="text-2xl">Albert Zaccone</CardTitle>
+                <p className="text-primary font-semibold text-lg">
+                  Certified Appraiser & Owner
+                </p>
+                <div className="flex justify-center gap-2 mt-2">
+                  <Badge variant="outline" className="text-xs">
+                    ASA Certified
+                  </Badge>
+                  <Badge variant="outline" className="text-xs">
+                    USPAP Compliant
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 leading-relaxed">
+                  Albert Zaccone is the founder and owner of CSR Realty
+                  Appraisers, bringing extensive experience in residential,
+                  commercial, and land appraisals throughout New Jersey. As a
+                  certified member of the American Society of Appraisers, Albert
+                  specializes in expert witness testimony, market feasibility
+                  studies, assessment appeals, and lease disputes.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Expertise
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive appraisal services for all property types throughout
+              New Jersey.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
+            {services.map((service, index) => (
               <Card
                 key={index}
                 className="text-center hover:shadow-lg transition-shadow"
               >
                 <CardHeader>
-                  <div className="relative mx-auto mb-4">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover mx-auto"
-                    />
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                      <Award className="w-4 h-4 text-white" />
-                    </div>
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <service.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <p className="text-primary font-semibold">{member.role}</p>
-                  <div className="flex justify-center gap-2 mt-2">
-                    <Badge variant="outline" className="text-xs">
-                      {member.credentials}
-                    </Badge>
-                    <Badge variant="outline" className="text-xs">
-                      {member.experience}
-                    </Badge>
-                  </div>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 text-sm">{member.description}</p>
+                  <p className="text-gray-600 text-sm">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -256,11 +292,11 @@ export default function About() {
       </section>
 
       {/* Achievements Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Achievements
+              Our Credentials
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Recognized for excellence in appraisal services and professional
@@ -294,8 +330,9 @@ export default function About() {
             Ready to Work with New Jersey's Best?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Experience the Premier Appraisal difference. Contact us today to
-            discuss your real estate appraisal needs.
+            Experience the CSR Realty Appraisers difference. Contact us today
+            for a free, confidential consultation about your real estate
+            appraisal needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -304,7 +341,7 @@ export default function About() {
               className="text-lg px-8 bg-white text-primary hover:bg-gray-100"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call (555) 123-4567
+              Call {BUSINESS_CONTACT.phone}
             </Button>
             <Button
               size="lg"
