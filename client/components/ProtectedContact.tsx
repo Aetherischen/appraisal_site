@@ -4,14 +4,14 @@ interface ProtectedContactProps {
 }
 
 const ProtectedContact = ({ type, className = "" }: ProtectedContactProps) => {
-  // Real data - testing direct render first
-  const realData = {
-    phone: "(201) 815-1000",
-    "phone-secondary": "(973) 591-9990",
-    email: "al@csrappraisals.com",
+  // Scrambled data that appears in DOM to confuse scrapers
+  const scrambledData = {
+    phone: "555-000-1234",
+    "phone-secondary": "555-000-5678",
+    email: "nospam@example.org",
   };
 
-  return <span className={className}>{realData[type]}</span>;
+  return <span className={className}>{scrambledData[type]}</span>;
 };
 
 export default ProtectedContact;
