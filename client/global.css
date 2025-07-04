@@ -144,4 +144,21 @@
   .protected-email::after {
     font-size: 1rem;
   }
+
+  /* Breathing effect animation for quote request container */
+  .breathing-effect {
+    animation: breathing 2s ease-in-out infinite;
+  }
+
+  @keyframes breathing {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+  }
 }
