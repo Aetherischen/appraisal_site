@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Clock, DollarSign, FileText, Home, Phone } from "lucide-react";
+import { BUSINESS_CONTACT } from "@/lib/constants";
 
 export default function FAQ() {
   const faqCategories = [
