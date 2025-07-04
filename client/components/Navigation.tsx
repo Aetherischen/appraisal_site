@@ -55,7 +55,9 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
-            <Button size="sm">Get Quote</Button>
+            <Button size="sm" asChild>
+              <Link to="/#quote-request">Get Quote</Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}

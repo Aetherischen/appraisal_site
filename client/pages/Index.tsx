@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -18,6 +19,31 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  useEffect(() => {
+    // Check if URL hash is #quote-request (from navigation)
+    if (window.location.hash === "#quote-request") {
+      // Scroll to the quote request section
+      const element = document.getElementById("quote-request");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Add breathing effect class
+        const container = element.querySelector(".quote-request-container");
+        if (container) {
+          container.classList.add("breathing-effect");
+
+          // Remove the effect after 10 seconds
+          setTimeout(() => {
+            container.classList.remove("breathing-effect");
+          }, 10000);
+        }
+      }
+
+      // Clean up the hash from URL
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, []);
+
   const services = [
     {
       icon: Home,
