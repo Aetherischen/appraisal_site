@@ -440,10 +440,11 @@ export default function PreparingYourNJHomeForAppraisal() {
               <div className="text-gray-600">
                 <p className="font-semibold mb-2">About the Author</p>
                 <p>
-                  Sarah Mitchell, SRA, is a certified residential appraiser with
-                  over 15 years of experience in New Jersey real estate markets.
-                  She specializes in complex valuations and has completed over
-                  3,000 appraisals throughout the Garden State.
+                  Albert Zaccone, ASA, is a certified appraiser with over 15
+                  years of experience in real estate valuation. He is an
+                  Accredited Senior Appraiser (ASA) certified by the American
+                  Society of Appraisers and specializes in residential,
+                  commercial, and estate appraisals throughout New Jersey.
                 </p>
               </div>
               <Link

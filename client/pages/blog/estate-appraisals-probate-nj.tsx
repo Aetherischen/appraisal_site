@@ -89,7 +89,7 @@ export default function EstateAppraisalsProbateNJ() {
                         million)
                       </li>
                       <li>• New Jersey inheritance tax filings</li>
-                      <li>• Probate court proceedings</li>
+                      <li>��� Probate court proceedings</li>
                       <li>• Estate distribution among heirs</li>
                       <li>• Charitable deduction valuations</li>
                       <li>• Dispute resolution between beneficiaries</li>
@@ -653,12 +653,11 @@ export default function EstateAppraisalsProbateNJ() {
               <div className="text-gray-600 max-w-2xl">
                 <p className="font-semibold mb-2">About the Author</p>
                 <p>
-                  David Rodriguez, MAI, has provided estate and probate
-                  appraisals for over 18 years, working with estate attorneys,
-                  CPAs, and family courts throughout New Jersey. He frequently
-                  serves as an expert witness in estate valuation disputes and
-                  teaches continuing education courses on estate appraisal
-                  methodology.
+                  Albert Zaccone, ASA, is a certified appraiser with over 15
+                  years of experience in real estate valuation. He is an
+                  Accredited Senior Appraiser (ASA) certified by the American
+                  Society of Appraisers and specializes in residential,
+                  commercial, and estate appraisals throughout New Jersey.
                 </p>
               </div>
               <Link

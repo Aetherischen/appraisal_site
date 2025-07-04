@@ -646,10 +646,11 @@ export default function InterestRatesPropertyValuesNJ() {
               <div className="text-gray-600 max-w-2xl">
                 <p className="font-semibold mb-2">About the Author</p>
                 <p>
-                  Michael Thompson, MAI, has analyzed New Jersey real estate
-                  markets for over 20 years, including through multiple interest
-                  rate cycles. His research on rate impacts has been published
-                  in industry journals and presented at appraisal conferences.
+                  Albert Zaccone, ASA, is a certified appraiser with over 15
+                  years of experience in real estate valuation. He is an
+                  Accredited Senior Appraiser (ASA) certified by the American
+                  Society of Appraisers and specializes in residential,
+                  commercial, and estate appraisals throughout New Jersey.
                 </p>
               </div>
               <Link
