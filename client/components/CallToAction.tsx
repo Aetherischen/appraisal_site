@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { BUSINESS_CONTACT } from "@/lib/constants";
+import ProtectedContact from "@/components/ProtectedContact";
 
 interface CallToActionProps {
   title?: string;
@@ -19,7 +19,7 @@ export default function CallToAction({
   subtitle = "Contact us today for a free quote on your real estate appraisal needs.",
   primaryButtonText = "Get Free Quote",
   primaryButtonLink = "/contact",
-  secondaryButtonText = `Call ${BUSINESS_CONTACT.phone}`,
+  secondaryButtonText = "Call",
   showPhoneButton = true,
   backgroundColor = "primary",
   className = "",
@@ -70,8 +70,9 @@ export default function CallToAction({
               size="lg"
               variant="secondary"
               className="text-lg px-8 bg-white text-primary hover:bg-gray-100"
+              onClick={handleCallClick}
             >
-              {secondaryButtonText}
+              {secondaryButtonText} <ProtectedContact type="phone" />
             </Button>
           )}
         </div>
