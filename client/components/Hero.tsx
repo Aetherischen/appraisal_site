@@ -19,7 +19,7 @@ const Hero = () => {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgb(86, 105, 114) 0%, rgb(86, 105, 114) 75%, rgba(86, 105, 114, 0.5) 78%, rgba(86, 105, 114, 0) 80%)",
+            "linear-gradient(to right, rgb(86, 105, 114) 0%, rgb(86, 105, 114) 60%, rgba(86, 105, 114, 0.5) 63%, rgba(86, 105, 114, 0) 65%)",
         }}
       ></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,12 +28,12 @@ const Hero = () => {
             <Badge className="mb-4" variant="secondary">
               New Jersey's Trusted Real Estate Appraisal Experts Since 2008
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Professional New Jersey{" "}
-              <span className="text-primary">Real Estate Appraisals</span> &
+              <span className="text-white">Real Estate Appraisals</span> &
               Property Valuations
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
               CSR Realty Appraisers delivers certified, USPAP-compliant property
               appraisals throughout New Jersey including Bergen County, Passaic
               County, Essex County, and Morris County. Licensed real estate
