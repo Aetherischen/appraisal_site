@@ -22,6 +22,7 @@ import {
 export default function Blog() {
   const featuredPost = {
     id: 1,
+    slug: "nj-real-estate-market-trends-2024",
     title:
       "New Jersey Real Estate Market Report: Q4 2024 Trends & Predictions for 2025",
     excerpt:
@@ -29,7 +30,7 @@ export default function Blog() {
     content:
       "The New Jersey real estate market has shown remarkable resilience throughout 2024, with notable variations across different regions and property types...",
     date: "December 15, 2024",
-    readTime: "8 min read",
+    readTime: "12 min read",
     category: "Market Analysis",
     author: "Michael Thompson, MAI",
     image:
@@ -40,39 +41,43 @@ export default function Blog() {
   const blogPosts = [
     {
       id: 2,
+      slug: "understanding-uspap-guidelines-nj",
       title:
-        "Understanding the USPAP Guidelines: What Every Property Owner Should Know",
+        "Understanding USPAP Guidelines: What Every New Jersey Property Owner Should Know",
       excerpt:
         "Learn about the Uniform Standards of Professional Appraisal Practice and how they protect property owners during the appraisal process.",
       date: "December 12, 2024",
-      readTime: "6 min read",
+      readTime: "10 min read",
       category: "Education",
-      author: "Sarah Mitchell, SRA",
+      author: "Michael Thompson, MAI",
       image:
         "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=250&fit=crop",
       tags: ["USPAP", "Standards", "Professional Practice"],
     },
     {
       id: 3,
-      title: "Commercial Property Valuations: Key Factors That Drive Value",
+      slug: "commercial-property-valuations-nj",
+      title:
+        "Commercial Property Valuations in New Jersey: Key Factors That Drive Value",
       excerpt:
         "Discover the unique considerations that go into commercial real estate appraisals and how they differ from residential properties.",
       date: "December 10, 2024",
-      readTime: "7 min read",
+      readTime: "12 min read",
       category: "Commercial",
-      author: "David Rodriguez, MAI",
+      author: "David Rodriguez, MAI, CCIM",
       image:
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop",
       tags: ["Commercial", "Valuation", "Investment"],
     },
     {
       id: 4,
+      slug: "interest-rates-property-values-nj",
       title:
         "How Rising Interest Rates Are Affecting New Jersey Property Values",
       excerpt:
         "An in-depth look at the correlation between interest rates and property values, with specific data from New Jersey markets.",
       date: "December 8, 2024",
-      readTime: "5 min read",
+      readTime: "10 min read",
       category: "Market Analysis",
       author: "Michael Thompson, MAI",
       image:
@@ -81,12 +86,13 @@ export default function Blog() {
     },
     {
       id: 5,
+      slug: "preparing-your-nj-home-for-appraisal",
       title:
-        "Preparing Your Home for Maximum Appraisal Value: A Complete Checklist",
+        "Preparing Your New Jersey Home for Maximum Appraisal Value: A Complete Guide",
       excerpt:
         "Practical tips and strategies to ensure your property shows its best value during an appraisal inspection.",
       date: "December 5, 2024",
-      readTime: "4 min read",
+      readTime: "8 min read",
       category: "Tips",
       author: "Sarah Mitchell, SRA",
       image:
@@ -95,30 +101,18 @@ export default function Blog() {
     },
     {
       id: 6,
-      title: "Estate Appraisals: Navigating Complex Valuation Challenges",
+      slug: "estate-appraisals-probate-nj",
+      title:
+        "Estate Appraisals and Probate in New Jersey: A Comprehensive Guide",
       excerpt:
         "Understanding the unique requirements and challenges involved in estate and probate property appraisals.",
       date: "December 3, 2024",
-      readTime: "6 min read",
+      readTime: "11 min read",
       category: "Legal",
       author: "David Rodriguez, MAI",
       image:
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop",
       tags: ["Estate Planning", "Probate", "Legal"],
-    },
-    {
-      id: 7,
-      title:
-        "Technology in Real Estate Appraisals: Modern Tools for Accurate Valuations",
-      excerpt:
-        "Explore how cutting-edge technology is enhancing the accuracy and efficiency of property appraisals.",
-      date: "November 30, 2024",
-      readTime: "5 min read",
-      category: "Technology",
-      author: "Michael Thompson, MAI",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
-      tags: ["Technology", "Innovation", "Tools"],
     },
   ];
 
@@ -203,9 +197,11 @@ export default function Blog() {
                       {featuredPost.author}
                     </span>
                   </div>
-                  <Button variant="outline" className="group">
-                    Read Full Article
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <Button variant="outline" className="group" asChild>
+                    <Link to={`/blog/${featuredPost.slug}`}>
+                      Read Full Article
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -232,54 +228,60 @@ export default function Blog() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {blogPosts.map((post) => (
-                  <Card
-                    key={post.id}
-                    className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer"
-                  >
-                    <div className="relative">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <Badge className={getCategoryColor(post.category)}>
-                          {post.category}
-                        </Badge>
-                      </div>
-                    </div>
-
-                    <CardHeader>
-                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-2">
-                        <span className="flex items-center">
-                          <Calendar className="w-4 h-4 mr-1" />
-                          {post.date}
-                        </span>
-                        <span className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />
-                          {post.readTime}
-                        </span>
-                      </div>
-                      <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
-                        {post.title}
-                      </CardTitle>
-                    </CardHeader>
-
-                    <CardContent>
-                      <p className="text-gray-600 mb-4">{post.excerpt}</p>
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-sm text-gray-500">
-                          <User className="w-4 h-4 mr-1" />
-                          {post.author}
+                  <Link key={post.id} to={`/blog/${post.slug}`}>
+                    <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
+                      <div className="relative">
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <Badge className={getCategoryColor(post.category)}>
+                            {post.category}
+                          </Badge>
                         </div>
-                        <Button variant="ghost" size="sm" className="group">
-                          Read More
-                          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                        </Button>
                       </div>
-                    </CardContent>
-                  </Card>
+
+                      <CardHeader>
+                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-2">
+                          <span className="flex items-center">
+                            <Calendar className="w-4 h-4 mr-1" />
+                            {post.date}
+                          </span>
+                          <span className="flex items-center">
+                            <Clock className="w-4 h-4 mr-1" />
+                            {post.readTime}
+                          </span>
+                        </div>
+                        <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                          {post.title}
+                        </CardTitle>
+                      </CardHeader>
+
+                      <CardContent>
+                        <p className="text-gray-600 mb-4">{post.excerpt}</p>
+
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center text-sm text-gray-500">
+                            <User className="w-4 h-4 mr-1" />
+                            {post.author}
+                          </div>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="group"
+                            asChild
+                          >
+                            <span>
+                              Read More
+                              <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                            </span>
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 ))}
               </div>
 

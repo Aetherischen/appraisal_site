@@ -16,6 +16,14 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 
+// Blog Posts
+import NJRealEstateMarketTrends2024 from "./pages/blog/nj-real-estate-market-trends-2024";
+import PreparingYourNJHomeForAppraisal from "./pages/blog/preparing-your-nj-home-for-appraisal";
+import UnderstandingUSPAPGuidelinesNJ from "./pages/blog/understanding-uspap-guidelines-nj";
+import CommercialPropertyValuationsNJ from "./pages/blog/commercial-property-valuations-nj";
+import InterestRatesPropertyValuesNJ from "./pages/blog/interest-rates-property-values-nj";
+import EstateAppraisalsProbateNJ from "./pages/blog/estate-appraisals-probate-nj";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +38,30 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/blog" element={<Blog />} />
+          <Route
+            path="/blog/nj-real-estate-market-trends-2024"
+            element={<NJRealEstateMarketTrends2024 />}
+          />
+          <Route
+            path="/blog/preparing-your-nj-home-for-appraisal"
+            element={<PreparingYourNJHomeForAppraisal />}
+          />
+          <Route
+            path="/blog/understanding-uspap-guidelines-nj"
+            element={<UnderstandingUSPAPGuidelinesNJ />}
+          />
+          <Route
+            path="/blog/commercial-property-valuations-nj"
+            element={<CommercialPropertyValuationsNJ />}
+          />
+          <Route
+            path="/blog/interest-rates-property-values-nj"
+            element={<InterestRatesPropertyValuesNJ />}
+          />
+          <Route
+            path="/blog/estate-appraisals-probate-nj"
+            element={<EstateAppraisalsProbateNJ />}
+          />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
