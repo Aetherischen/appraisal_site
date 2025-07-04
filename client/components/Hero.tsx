@@ -15,7 +15,13 @@ const Hero = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 to-white/90"></div>
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgb(86, 105, 114) 0%, rgba(86, 105, 114, 0.7) 40%, rgba(86, 105, 114, 0.3) 65%, rgba(86, 105, 114, 0) 75%)",
+        }}
+      ></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>

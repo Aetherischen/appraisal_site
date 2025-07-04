@@ -30,7 +30,13 @@ const PageHeader = ({
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-50/80 to-white/80"></div>
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgb(86, 105, 114) 0%, rgba(86, 105, 114, 0.7) 40%, rgba(86, 105, 114, 0.3) 65%, rgba(86, 105, 114, 0) 75%)",
+        }}
+      ></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           {badge && (
