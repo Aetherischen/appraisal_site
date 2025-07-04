@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ProtectedContact from "@/components/ProtectedContact";
 import { BUSINESS_CONTACT } from "@/lib/constants";
@@ -15,6 +15,50 @@ const AppraisalCTA = ({
   description = "Get started today with New Jersey's most trusted appraisal professionals. Free, confidential consultations available by appointment.",
   showStats = true,
 }: AppraisalCTAProps) => {
+  const navigate = useNavigate();
+
+  const handleGetQuote = () => {
+    // Navigate to home page with hash
+    navigate("/#quote-request");
+
+    // Add a small delay to ensure navigation completes before triggering effect
+    setTimeout(() => {
+      const element = document.getElementById("quote-request");
+      if (element) {
+        // Scroll to the quote request section
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Add breathing effect class
+        const container = element.querySelector(".quote-request-container");
+        if (container) {
+          // Remove any existing effect first
+          container.classList.remove("breathing-effect");
+
+          // Add the effect after a small delay to ensure it's visible
+          setTimeout(() => {
+            container.classList.add("breathing-effect");
+
+            // Remove the effect after 15 seconds
+            setTimeout(() => {
+              container.classList.remove("breathing-effect");
+            }, 15000);
+          }, 100);
+        }
+      }
+
+      // Clean up the hash from URL after a delay
+      setTimeout(() => {
+        window.history.replaceState(null, "", window.location.pathname);
+      }, 1000);
+    }, 100);
+  };
+
+  const handleCallClick = () => {
+    // Create phone link and trigger it
+    const phoneNumber = BUSINESS_CONTACT.phone.replace(/[^\d]/g, "");
+    window.location.href = `tel:+1${phoneNumber}`;
+  };
+
   return (
     <section className="py-20 bg-gradient-to-r from-primary via-blue-600 to-primary relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-blue-600/90"></div>
@@ -35,17 +79,16 @@ const AppraisalCTA = ({
             size="lg"
             variant="secondary"
             className="text-lg px-8 bg-white text-primary hover:bg-gray-100 group"
-            asChild
+            onClick={handleGetQuote}
           >
-            <Link to="/contact">
-              Get Free Quote
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            Get Free Quote
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="text-lg px-8 border-white text-primary bg-white hover:bg-gray-100 hover:text-primary"
+            onClick={handleCallClick}
           >
             Call <ProtectedContact type="phone" />
           </Button>
