@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ProtectedContact from "@/components/ProtectedContact";
+import AppraisalCTA from "@/components/AppraisalCTA";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -221,11 +222,9 @@ export default function About() {
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="relative mx-auto mb-4">
-                  <img
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
-                    alt="Albert Zaccone"
-                    className="w-32 h-32 rounded-full object-cover mx-auto"
-                  />
+                  <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                    <span className="text-3xl font-bold text-primary">AZ</span>
+                  </div>
                   <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                     <Award className="w-5 h-5 text-white" />
                   </div>
@@ -324,37 +323,10 @@ export default function About() {
         </div>
       </section>
 
-      {/* Contact CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Work with New Jersey's Best?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Experience the CSR Realty Appraisers difference. Contact us today
-            for a free, confidential consultation about your real estate
-            appraisal needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="text-lg px-8 bg-white text-primary hover:bg-gray-100"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Call <ProtectedContact type="phone" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Get Free Quote
-            </Button>
-          </div>
-        </div>
-      </section>
+      <AppraisalCTA
+        title="Ready to Work with New Jersey's Best?"
+        description="Experience the CSR Realty Appraisers difference. Contact us today for a free, confidential consultation about your real estate appraisal needs."
+      />
 
       <Footer />
     </div>
