@@ -174,6 +174,14 @@ export default function Index() {
     },
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 3) % testimonials.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
