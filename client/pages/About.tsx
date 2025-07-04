@@ -125,23 +125,33 @@ export default function About() {
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 CSR Realty Appraisers was founded and is operated by Albert
-                Zaccone, a certified appraiser with a proven track record of
-                providing accurate, USPAP-compliant appraisals across New
-                Jersey. Our mission is to deliver responsible, efficient, and
-                reliable real estate appraisals and advisory services.
+                Zaccone, a licensed New Jersey real estate appraiser and
+                certified member of the American Society of Appraisers (ASA).
+                Based in Wallington, NJ, we have a proven track record of
+                providing accurate, USPAP-compliant property appraisals across
+                Bergen County, Passaic County, Essex County, and all New Jersey
+                counties. Our mission is to deliver responsible, efficient, and
+                reliable real estate valuations and advisory services throughout
+                the Garden State.
               </p>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Our team consists of licensed professionals experienced in
-                residential, commercial, and land appraisals. We serve a diverse
-                client base including homeowners, real estate buyers and
-                sellers, attorneys, accountants, financial institutions, and
-                government agencies throughout New Jersey.
+                Our team consists of licensed New Jersey real estate appraisal
+                professionals experienced in residential home appraisals,
+                commercial property valuations, and agricultural land
+                appraisals. We serve a diverse client base including New Jersey
+                homeowners, real estate agents and brokers, divorce attorneys,
+                estate planning lawyers, tax assessors, mortgage lenders,
+                financial institutions, and government agencies throughout
+                Bergen County, Passaic County, Essex County, Morris County,
+                Hudson County, and surrounding NJ areas.
               </p>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We maintain an extensive electronic database for accurate market
-                analysis, supporting all types of real estate transactions while
-                adhering to strict confidentiality standards and protecting
-                client data.
+                We maintain an extensive electronic database of New Jersey real
+                estate sales data and market trends for accurate market
+                analysis, supporting all types of property transactions
+                including refinancing, home purchases, estate settlements, tax
+                appeals, and legal proceedings while adhering to strict USPAP
+                confidentiality standards and protecting client data.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Badge variant="secondary" className="text-sm py-2 px-4">
