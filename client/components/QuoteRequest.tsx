@@ -125,7 +125,15 @@ This request was submitted through the CSR Realty Appraisers website.
 
   const handleInputChange = useCallback(
     (field: keyof FormData, value: string) => {
-      setFormData((prev) => ({ ...prev, [field]: value }));
+      // Filter phone input to only allow numeric characters and common formatting
+      if (field === "phone") {
+        // Only allow digits, spaces, dashes, parentheses
+        const filteredValue = value.replace(/[^\d\s\-\(\)]/g, "");
+        setFormData((prev) => ({ ...prev, [field]: filteredValue }));
+      } else {
+        setFormData((prev) => ({ ...prev, [field]: value }));
+      }
+
       // Clear error when user starts typing
       setErrors((prev) => {
         if (prev[field as keyof FormErrors]) {
