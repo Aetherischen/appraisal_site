@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -123,15 +123,23 @@ This request was submitted through the CSR Realty Appraisers website.
     setIsSubmitting(false);
   };
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    // Clear error when user starts typing
-    if (errors[field as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [field]: undefined }));
-    }
-  };
+  const handleInputChange = useCallback(
+    (field: keyof FormData, value: string) => {
+      setFormData((prev) => ({ ...prev, [field]: value }));
+      // Clear error when user starts typing
+      setErrors((prev) => {
+        if (prev[field as keyof FormErrors]) {
+          const newErrors = { ...prev };
+          delete newErrors[field as keyof FormErrors];
+          return newErrors;
+        }
+        return prev;
+      });
+    },
+    [],
+  );
 
-  const FormContent = () => (
+  const formContent = (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <Label htmlFor="name">Name *</Label>
@@ -214,7 +222,7 @@ This request was submitted through the CSR Realty Appraisers website.
     return (
       <div className={className}>
         <h3 className="font-semibold text-gray-900 mb-4">{title}</h3>
-        <FormContent />
+        {formContent}
       </div>
     );
   }
@@ -224,9 +232,7 @@ This request was submitted through the CSR Realty Appraisers website.
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent>
-        <FormContent />
-      </CardContent>
+      <CardContent>{formContent}</CardContent>
     </Card>
   );
 };
