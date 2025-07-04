@@ -234,8 +234,9 @@ export default function Index() {
               Valuations?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the difference that certified expertise, professional
-              standards, and responsible service make.
+              Experience the difference that ASA-certified expertise,
+              USPAP-compliant standards, and local New Jersey market knowledge
+              make for your real estate appraisal needs.
             </p>
           </div>
 
