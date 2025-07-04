@@ -18,17 +18,19 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-600">
-              New Jersey's trusted real estate appraisal experts delivering
-              responsible, efficient, and reliable appraisal services.
+              Licensed New Jersey real estate appraisers serving Bergen County,
+              Passaic County, Essex County, and all NJ areas. ASA-certified,
+              USPAP-compliant residential, commercial, and land appraisal
+              services.
             </p>
           </div>
           <div>
             <h3 className="font-semibold mb-4 text-gray-900">Services</h3>
             <ul className="space-y-2 text-gray-600">
-              <li>Residential Appraisals</li>
-              <li>Commercial Appraisals</li>
-              <li>Expert Witness</li>
-              <li>Estate Planning</li>
+              <li>NJ Residential Property Appraisals</li>
+              <li>Commercial Real Estate Valuations</li>
+              <li>Expert Witness Testimony</li>
+              <li>Estate & Divorce Appraisals</li>
             </ul>
           </div>
           <div>
