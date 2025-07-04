@@ -13,25 +13,25 @@ const ProtectedContact = ({ type, className = "" }: ProtectedContactProps) => {
     email: "al@csrappraisals.com",
   };
 
-  // Scrambled/fake data that appears initially
+  // Scrambled/fake data for scrapers
   const scrambledData = {
     phone: "555-000-1234",
     "phone-secondary": "555-000-5678",
     email: "nospam@example.org",
   };
 
-  const [displayText, setDisplayText] = useState(scrambledData[type]);
+  const [showReal, setShowReal] = useState(false);
 
   useEffect(() => {
-    // Replace with real data after a very short delay
-    const timer = setTimeout(() => {
-      setDisplayText(realData[type]);
-    }, 100);
+    // Show real data after component mounts (for human users)
+    setShowReal(true);
+  }, []);
 
-    return () => clearTimeout(timer);
-  }, [type, realData]);
-
-  return <span className={className}>{displayText}</span>;
+  return (
+    <span className={className}>
+      {showReal ? realData[type] : scrambledData[type]}
+    </span>
+  );
 };
 
 export default ProtectedContact;
