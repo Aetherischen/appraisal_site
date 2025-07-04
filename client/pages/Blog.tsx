@@ -67,7 +67,7 @@ export default function Blog() {
       date: "December 10, 2024",
       readTime: "12 min read",
       category: "Commercial",
-      author: "David Rodriguez, MAI, CCIM",
+      author: "Albert Zaccone, ASA",
       image:
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=250&fit=crop",
       tags: ["Commercial", "Valuation", "Investment"],
@@ -97,7 +97,7 @@ export default function Blog() {
       date: "December 5, 2024",
       readTime: "8 min read",
       category: "Tips",
-      author: "Sarah Mitchell, SRA",
+      author: "Albert Zaccone, ASA",
       image:
         "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=250&fit=crop",
       tags: ["Home Preparation", "Value Maximization", "Tips"],
@@ -112,7 +112,7 @@ export default function Blog() {
       date: "December 3, 2024",
       readTime: "11 min read",
       category: "Legal",
-      author: "David Rodriguez, MAI",
+      author: "Albert Zaccone, ASA",
       image:
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=250&fit=crop",
       tags: ["Estate Planning", "Probate", "Legal"],
