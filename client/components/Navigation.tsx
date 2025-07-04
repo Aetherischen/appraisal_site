@@ -55,7 +55,35 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
-            <Button size="sm" asChild>
+            <Button
+              size="sm"
+              asChild
+              onClick={(e) => {
+                // If we're already on the homepage, trigger the effect immediately
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  const element = document.getElementById("quote-request");
+                  if (element) {
+                    element.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                    const container = element.querySelector(
+                      ".quote-request-container",
+                    );
+                    if (container) {
+                      container.classList.remove("breathing-effect");
+                      setTimeout(() => {
+                        container.classList.add("breathing-effect");
+                        setTimeout(() => {
+                          container.classList.remove("breathing-effect");
+                        }, 15000);
+                      }, 100);
+                    }
+                  }
+                }
+              }}
+            >
               <Link to="/#quote-request">Get Quote</Link>
             </Button>
           </div>
@@ -93,7 +121,38 @@ const Navigation = () => {
                   <span>{item.label}</span>
                 </Link>
               ))}
-              <Button size="sm" className="w-fit" asChild>
+              <Button
+                size="sm"
+                className="w-fit"
+                asChild
+                onClick={(e) => {
+                  // If we're already on the homepage, trigger the effect immediately
+                  if (window.location.pathname === "/") {
+                    e.preventDefault();
+                    const element = document.getElementById("quote-request");
+                    if (element) {
+                      element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center",
+                      });
+                      const container = element.querySelector(
+                        ".quote-request-container",
+                      );
+                      if (container) {
+                        container.classList.remove("breathing-effect");
+                        setTimeout(() => {
+                          container.classList.add("breathing-effect");
+                          setTimeout(() => {
+                            container.classList.remove("breathing-effect");
+                          }, 15000);
+                        }, 100);
+                      }
+                    }
+                  }
+                  // Close mobile menu
+                  setMobileMenuOpen(false);
+                }}
+              >
                 <Link to="/#quote-request">Get Quote</Link>
               </Button>
             </div>
