@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { BUSINESS_CONTACT } from "@/lib/constants";
 import {
   Home,
   Building2,
@@ -20,6 +21,12 @@ import {
   ArrowRight,
   CheckCircle,
   Star,
+  DollarSign,
+  TreePine,
+  Calculator,
+  Gavel,
+  FileText,
+  Search,
 } from "lucide-react";
 
 export default function Services() {
@@ -28,97 +35,168 @@ export default function Services() {
       icon: Home,
       title: "Residential Appraisals",
       description:
-        "Professional valuations for single-family homes, condominiums, townhouses, and multi-family properties. Our certified appraisers provide accurate market value assessments for purchases, refinancing, and lending purposes.",
+        "Comprehensive valuations for single-family homes, condominiums, townhouses, duplexes, triplexes, mobile homes, cottages, co-ops, high/low-rise units, and vacant land. Services include buying/selling, financing, refinancing, divorce settlements, estate valuation, property tax assessments, pre-listing services, insurance assessments, and foreclosures.",
       color: "bg-blue-500",
       gradient: "from-blue-50 to-blue-100",
+      features: [
+        "Detailed property sketch with room delineation",
+        "Square footage calculations and feature descriptions",
+        "Disclosure of defects and assets",
+        "Market value determination using sales comparison approach",
+      ],
     },
     {
       icon: Building2,
       title: "Commercial Appraisals",
       description:
-        "Comprehensive valuations for office buildings, retail centers, industrial properties, warehouses, and mixed-use developments. We serve investors, lenders, and property owners throughout New Jersey.",
+        "Professional valuations for retail properties, hotels, motels, offices, and development lands using specialized methodologies. Our commercial appraisals support investment analysis, financing, litigation, and lease disputes with comprehensive market analysis.",
       color: "bg-green-500",
       gradient: "from-green-50 to-green-100",
+      features: [
+        "Sales Comparison Approach: Analyzes similar surrounding properties",
+        "Cost Approach: Evaluates land value, improvements, and depreciation",
+        "Income Capitalization: Assesses potential earning power for investments",
+        "Tailored for investors and lenders focusing on profit potential",
+      ],
+    },
+    {
+      icon: TreePine,
+      title: "Land & Agricultural Appraisals",
+      description:
+        "Specialized valuations for vacant lots, agricultural land, and rural acreages. Our land appraisals support purchase/sales, development feasibility studies, litigation, zoning research, and condemned property assessments with detailed highest and best use analysis.",
+      color: "bg-emerald-500",
+      gradient: "from-emerald-50 to-emerald-100",
+      features: [
+        "Zoning analysis and highest and best use determination",
+        "Price per square foot or buildable square foot calculations",
+        "Development costs and adjacent property impact analysis",
+        "New construction trends and competitor analysis",
+      ],
     },
     {
       icon: FileCheck,
       title: "Estate Planning & Probate",
       description:
-        "Accurate property valuations for estate settlements, inheritance tax purposes, and probate proceedings. We provide detailed reports that meet all legal requirements and court standards.",
+        "Accurate property valuations for estate settlements, inheritance purposes, and probate proceedings. We provide detailed reports that meet all legal requirements and court standards for fair asset distribution.",
       color: "bg-purple-500",
       gradient: "from-purple-50 to-purple-100",
+      features: [
+        "USPAP-compliant estate valuations",
+        "Court-acceptable detailed reports",
+        "Fair market value determinations",
+        "Confidential handling of sensitive matters",
+      ],
     },
     {
       icon: Scale,
       title: "Divorce & Legal Proceedings",
       description:
-        "Impartial property valuations for divorce settlements, legal disputes, and court proceedings. Our appraisals help ensure fair distribution of real estate assets during legal proceedings.",
+        "Impartial property valuations for divorce settlements, legal disputes, and court proceedings. Our certified appraisers serve as expert witnesses providing credible testimony based on thorough analysis and professional standards.",
       color: "bg-orange-500",
       gradient: "from-orange-50 to-orange-100",
+      features: [
+        "Unbiased professional valuations",
+        "Expert witness testimony",
+        "Court-defensible reports",
+        "Litigation support services",
+      ],
     },
     {
       icon: Receipt,
       title: "Tax Appeals & Assessment",
       description:
-        "Property valuations to support tax assessment appeals and challenges. We help property owners reduce their tax burden with accurate market value assessments that demonstrate fair taxation.",
+        "Property valuations to support tax assessment appeals and challenges. We help property owners reduce their tax burden with accurate market value assessments that demonstrate fair taxation and support reassessment proceedings.",
       color: "bg-red-500",
       gradient: "from-red-50 to-red-100",
+      features: [
+        "Assessment appeal support",
+        "Market value vs. assessed value analysis",
+        "Tax reduction strategies",
+        "Municipal assessment review",
+      ],
     },
     {
-      icon: Users,
-      title: "Expert Witness Services",
+      icon: DollarSign,
+      title: "Financing & Refinancing",
       description:
-        "Professional testimony and expert witness services for legal proceedings, insurance claims, and court cases. Our certified appraisers provide credible testimony based on thorough analysis.",
+        "Essential appraisals for mortgage approvals, refinancing, and lending purposes. Our valuations protect both lenders and borrowers by establishing accurate property values that support loan decisions and terms.",
       color: "bg-indigo-500",
       gradient: "from-indigo-50 to-indigo-100",
-    },
-    {
-      icon: Shield,
-      title: "PMI Removal Appraisals",
-      description:
-        "Home valuations to eliminate private mortgage insurance (PMI) when your property value has increased sufficiently to meet loan-to-value requirements for PMI removal.",
-      color: "bg-teal-500",
-      gradient: "from-teal-50 to-teal-100",
-    },
-    {
-      icon: TrendingUp,
-      title: "Pre-Listing Appraisals",
-      description:
-        "Strategic property valuations to help sellers price their homes competitively. Get an accurate market value before listing to maximize your sale price and minimize time on market.",
-      color: "bg-pink-500",
-      gradient: "from-pink-50 to-pink-100",
-    },
-    {
-      icon: Briefcase,
-      title: "Investment Property Analysis",
-      description:
-        "Detailed valuations for rental properties, investment portfolios, and income-producing real estate. We provide income approach analysis and market comparisons for informed investment decisions.",
-      color: "bg-yellow-500",
-      gradient: "from-yellow-50 to-yellow-100",
-    },
-    {
-      icon: MapPin,
-      title: "Relocation Appraisals",
-      description:
-        "Corporate relocation appraisals for employees transferring to new locations. We work with relocation companies and HR departments to provide timely, accurate valuations.",
-      color: "bg-cyan-500",
-      gradient: "from-cyan-50 to-cyan-100",
+      features: [
+        "Primary and secondary financing support",
+        "Lender-required valuations",
+        "PMI removal appraisals",
+        "Investment property analysis",
+      ],
     },
     {
       icon: AlertTriangle,
-      title: "Insurance Claim Appraisals",
+      title: "Insurance & Replacement Cost",
       description:
-        "Property damage assessments and replacement cost valuations for insurance claims. We help determine pre-loss value and reconstruction costs for fire, flood, and other property damage claims.",
+        "Replacement cost analysis for insurance purposes and property damage assessments. We determine pre-loss values and reconstruction costs for fire, flood, and other property damage claims to ensure adequate coverage.",
       color: "bg-amber-500",
       gradient: "from-amber-50 to-amber-100",
+      features: [
+        "Replacement cost calculations",
+        "Insurance claim support",
+        "Pre-loss value determination",
+        "Damage assessment reports",
+      ],
     },
     {
-      icon: Gem,
-      title: "Specialty Property Appraisals",
+      icon: Search,
+      title: "Feasibility Studies",
       description:
-        "Unique property valuations including historic homes, luxury estates, waterfront properties, farms, and other specialty real estate requiring specialized knowledge and experience.",
+        "Comprehensive market feasibility studies for development projects, investment analysis, and strategic planning. Our studies include market trends analysis, development potential assessment, and cash flow evaluations.",
+      color: "bg-cyan-500",
+      gradient: "from-cyan-50 to-cyan-100",
+      features: [
+        "Market feasibility analysis",
+        "Development potential assessment",
+        "Cash flow projections",
+        "Competitor and trend analysis",
+      ],
+    },
+    {
+      icon: FileText,
+      title: "Lease Rate Surveys",
+      description:
+        "Professional lease rate surveys and rental market analysis for commercial and residential properties. Supporting lease negotiations, rent reviews, and market positioning with comprehensive data analysis.",
       color: "bg-violet-500",
       gradient: "from-violet-50 to-violet-100",
+      features: [
+        "Rental market analysis",
+        "Lease rate comparisons",
+        "Market positioning studies",
+        "Rent review support",
+      ],
+    },
+  ];
+
+  const appraisalProcess = [
+    {
+      step: "1",
+      title: "Onsite Inspection",
+      description:
+        "Comprehensive assessment of property condition, layout, features, and any defects or improvements.",
+    },
+    {
+      step: "2",
+      title: "Data Research",
+      description:
+        "Extensive research using public records, MLS data, professional associations, and our electronic database.",
+    },
+    {
+      step: "3",
+      title: "Analysis",
+      description:
+        "Application of appropriate valuation approaches: sales comparison, cost, and/or income methods.",
+    },
+    {
+      step: "4",
+      title: "Report Delivery",
+      description:
+        "Standardized or narrative format reports tailored to client needs and delivered timely.",
     },
   ];
 
@@ -130,33 +208,58 @@ export default function Services() {
         badge="Professional Appraisal Services"
         title="Comprehensive"
         subtitle="Real Estate Appraisal Services"
-        description="From residential homes to commercial properties, we provide accurate, certified appraisals for every real estate need throughout New Jersey."
+        description="CSR Realty Appraisers provides accurate, USPAP-compliant appraisals for residential, commercial, and specialty properties throughout New Jersey. Our services streamline real estate transactions and support financing, legal, and advisory needs."
         variant="gradient"
       />
 
       {/* Services Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Appraisal Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Professional appraisals that establish fair market value and
+              support all your real estate needs.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <Card
                 key={service.title}
                 className={`group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-0 bg-gradient-to-br ${service.gradient} overflow-hidden`}
               >
                 <CardHeader className="pb-4">
-                  <div
-                    className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <service.icon className="w-6 h-6 text-white" />
+                  <div className="flex items-start gap-4">
+                    <div
+                      className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <service.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg leading-tight text-gray-900 group-hover:text-primary transition-colors mb-2">
+                        {service.title}
+                      </CardTitle>
+                    </div>
                   </div>
-                  <CardTitle className="text-lg leading-tight text-gray-900 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700 text-sm leading-relaxed">
+                  <p className="text-gray-700 text-sm leading-relaxed mb-4">
                     {service.description}
                   </p>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-xs text-gray-600"
+                      >
+                        <CheckCircle className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -164,41 +267,70 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Appraisal Process Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Premier Appraisal?
+              Our Appraisal Process
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the difference that certified expertise and local
-              knowledge make.
+              A systematic approach ensuring accuracy, compliance, and timely
+              delivery of professional appraisal reports.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {appraisalProcess.map((process, index) => (
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-xl font-bold group-hover:scale-110 transition-transform">
+                  {process.step}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  {process.title}
+                </h3>
+                <p className="text-gray-600">{process.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Choose CSR Realty Appraisers?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Experience the difference that certified expertise, professional
+              standards, and responsible service make.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {[
               {
-                icon: CheckCircle,
-                title: "Certified Professionals",
+                icon: Award,
+                title: "ASA Certified",
                 description:
-                  "All appraisers are state-licensed and certified with extensive experience.",
-                stat: "15+ Years",
+                  "Certified members of the American Society of Appraisers with proven expertise.",
+                stat: "Certified",
               },
               {
-                icon: Star,
-                title: "Fast Turnaround",
+                icon: Shield,
+                title: "USPAP Compliant",
                 description:
-                  "Quick delivery without compromising accuracy or thoroughness.",
-                stat: "48-72 Hours",
+                  "Adheres to Uniform Standards of Professional Appraisal Practice and fully insured.",
+                stat: "Compliant",
               },
               {
-                icon: Star,
-                title: "Local Expertise",
+                icon: MapPin,
+                title: "Statewide Service",
                 description:
-                  "Deep knowledge of New Jersey markets and neighborhood trends.",
-                stat: "500+ Cities",
+                  "Serving all of New Jersey with extensive electronic database and local expertise.",
+                stat: "All NJ",
               },
             ].map((feature, index) => (
               <div key={index} className="text-center group">
@@ -233,8 +365,8 @@ export default function Services() {
           </h2>
           <p className="text-xl text-blue-100 mb-8 leading-relaxed">
             Get started today with New Jersey's most trusted appraisal
-            professionals. Fast, accurate, and reliable service for all your
-            real estate needs.
+            professionals. Free, confidential consultations available by
+            appointment.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -254,22 +386,28 @@ export default function Services() {
               variant="outline"
               className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary"
             >
-              Call Now: (555) 123-4567
+              Call {BUSINESS_CONTACT.phone}
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-2xl font-bold text-white mb-2">1000+</div>
-              <div className="text-blue-100">Appraisals Completed</div>
+              <div className="text-2xl font-bold text-white mb-2">
+                All Property Types
+              </div>
+              <div className="text-blue-100">Residential, Commercial, Land</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-white mb-2">24/7</div>
-              <div className="text-blue-100">Customer Support</div>
+              <div className="text-2xl font-bold text-white mb-2">
+                {BUSINESS_CONTACT.hours.split(",")[0]}
+              </div>
+              <div className="text-blue-100">Available by Appointment</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-white mb-2">100%</div>
-              <div className="text-blue-100">Client Satisfaction</div>
+              <div className="text-2xl font-bold text-white mb-2">
+                Statewide
+              </div>
+              <div className="text-blue-100">Serving All of New Jersey</div>
             </div>
           </div>
         </div>
