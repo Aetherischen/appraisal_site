@@ -35,7 +35,7 @@ export default function Blog() {
     date: "December 15, 2024",
     readTime: "12 min read",
     category: "Market Analysis",
-    author: "Michael Thompson, MAI",
+    author: "Albert Zaccone, ASA",
     image:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop",
     featured: true,
@@ -82,7 +82,7 @@ export default function Blog() {
       date: "December 8, 2024",
       readTime: "10 min read",
       category: "Market Analysis",
-      author: "Michael Thompson, MAI",
+      author: "Albert Zaccone, ASA",
       image:
         "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=250&fit=crop",
       tags: ["Interest Rates", "Market Trends", "Economics"],
