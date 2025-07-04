@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 import { BUSINESS_CONTACT } from "@/lib/constants";
+import ProtectedContact from "./ProtectedContact";
 
 const Footer = () => {
   return (
@@ -79,8 +80,12 @@ const Footer = () => {
             <h3 className="font-semibold mb-4 text-gray-900">Contact</h3>
             <ul className="space-y-2 text-gray-600">
               <li>{BUSINESS_CONTACT.address}</li>
-              <li>{BUSINESS_CONTACT.phone}</li>
-              <li>{BUSINESS_CONTACT.email}</li>
+              <li>
+                <ProtectedContact type="phone" />
+              </li>
+              <li>
+                <ProtectedContact type="email" />
+              </li>
               <li>{BUSINESS_CONTACT.hours}</li>
             </ul>
           </div>
