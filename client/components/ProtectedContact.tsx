@@ -4,12 +4,16 @@ interface ProtectedContactProps {
 }
 
 const ProtectedContact = ({ type, className = "" }: ProtectedContactProps) => {
+  // Scrambled/fake data that appears in DOM to confuse scrapers
+  const scrambledData = {
+    phone: "555-000-1234",
+    "phone-secondary": "555-000-5678",
+    email: "nospam@example.org",
+  };
+
   return (
     <span className={`protected-${type} ${className}`}>
-      {/* This text is hidden by CSS but provides fallback for screen readers */}
-      {type === "phone" && "(201) 815-1000"}
-      {type === "phone-secondary" && "(973) 591-9990"}
-      {type === "email" && "al@csrappraisals.com"}
+      {scrambledData[type]}
     </span>
   );
 };

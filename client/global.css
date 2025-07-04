@@ -129,11 +129,15 @@
     content: "@csrappraisals.com";
   }
 
-  /* Hide the actual text content from DOM while keeping pseudo-elements visible */
+  /* Completely hide scrambled text and show real data via pseudo-elements */
   .protected-phone,
   .protected-phone-secondary,
   .protected-email {
-    font-size: 0;
+    font-size: 0 !important;
+    color: transparent !important;
+    text-indent: -9999px;
+    overflow: hidden;
+    position: relative;
   }
 
   .protected-phone::before,
@@ -143,6 +147,11 @@
   .protected-email::before,
   .protected-email::after {
     font-size: 1rem;
+    color: inherit;
+    text-indent: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 
   /* Breathing effect animation for quote request container */
