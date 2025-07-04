@@ -6,8 +6,17 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-50 to-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative py-20 bg-gradient-to-br from-blue-50 to-white"
+      style={{
+        backgroundImage: "url('/hero.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 to-white/90"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Badge className="mb-4" variant="secondary">

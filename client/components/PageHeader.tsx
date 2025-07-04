@@ -21,8 +21,17 @@ const PageHeader = ({
       : "bg-gray-50";
 
   return (
-    <section className={`${bgClass} py-20`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      className={`relative ${bgClass} py-20`}
+      style={{
+        backgroundImage: "url('/header.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-50/80 to-white/80"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           {badge && (
             <Badge className="mb-4" variant="secondary">
