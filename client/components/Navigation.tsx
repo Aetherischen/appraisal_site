@@ -93,8 +93,8 @@ const Navigation = () => {
                   <span>{item.label}</span>
                 </Link>
               ))}
-              <Button size="sm" className="w-fit">
-                Get Quote
+              <Button size="sm" className="w-fit" asChild>
+                <Link to="/#quote-request">Get Quote</Link>
               </Button>
             </div>
           </div>

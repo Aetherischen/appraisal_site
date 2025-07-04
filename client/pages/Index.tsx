@@ -139,8 +139,8 @@ export default function Index() {
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-primary/10 rounded-2xl p-8 backdrop-blur-sm">
+            <div className="relative" id="quote-request">
+              <div className="bg-primary/10 rounded-2xl p-8 backdrop-blur-sm quote-request-container">
                 <QuoteRequest
                   variant="inline"
                   className="bg-white rounded-lg p-6 shadow-lg"
