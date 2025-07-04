@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 
 export default function Blog() {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
   const featuredPost = {
     id: 1,
     slug: "nj-real-estate-market-trends-2024",
@@ -150,65 +152,67 @@ export default function Blog() {
       />
 
       {/* Featured Post */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Featured Article
-            </h2>
-          </div>
+      {showFeaturedPost && (
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Featured Article
+              </h2>
+            </div>
 
-          <Card className="overflow-hidden hover:shadow-xl transition-shadow">
-            <div className="md:flex">
-              <div className="md:w-1/2">
-                <img
-                  src={featuredPost.image}
-                  alt={featuredPost.title}
-                  className="w-full h-64 md:h-full object-cover"
-                />
-              </div>
-              <div className="md:w-1/2 p-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <Badge className={getCategoryColor(featuredPost.category)}>
-                    {featuredPost.category}
-                  </Badge>
-                  <span className="text-sm text-gray-500 flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    {featuredPost.date}
-                  </span>
-                  <span className="text-sm text-gray-500 flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {featuredPost.readTime}
-                  </span>
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="md:flex">
+                <div className="md:w-1/2">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="w-full h-64 md:h-full object-cover"
+                  />
                 </div>
-
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-                  {featuredPost.title}
-                </h3>
-
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {featuredPost.excerpt}
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <User className="w-4 h-4 text-gray-400 mr-2" />
-                    <span className="text-sm text-gray-600">
-                      {featuredPost.author}
+                <div className="md:w-1/2 p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <Badge className={getCategoryColor(featuredPost.category)}>
+                      {featuredPost.category}
+                    </Badge>
+                    <span className="text-sm text-gray-500 flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {featuredPost.date}
+                    </span>
+                    <span className="text-sm text-gray-500 flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      {featuredPost.readTime}
                     </span>
                   </div>
-                  <Button variant="outline" className="group" asChild>
-                    <Link to={`/blog/${featuredPost.slug}`}>
-                      Read Full Article
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+                    {featuredPost.title}
+                  </h3>
+
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {featuredPost.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <User className="w-4 h-4 text-gray-400 mr-2" />
+                      <span className="text-sm text-gray-600">
+                        {featuredPost.author}
+                      </span>
+                    </div>
+                    <Button variant="outline" className="group" asChild>
+                      <Link to={`/blog/${featuredPost.slug}`}>
+                        Read Full Article
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Card>
-        </div>
-      </section>
+            </Card>
+          </div>
+        </section>
+      )}
 
       {/* Main Content */}
       <section className="py-16 bg-white">
@@ -218,72 +222,99 @@ export default function Blog() {
             <div className="lg:col-span-3">
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  Latest Articles
+                  {selectedCategory
+                    ? `${selectedCategory} Articles`
+                    : "Latest Articles"}
                 </h2>
                 <p className="text-gray-600">
-                  Expert insights and practical advice from our certified
-                  appraisal team.
+                  {selectedCategory
+                    ? `Articles focused on ${selectedCategory.toLowerCase()} topics`
+                    : "Expert insights and practical advice from our certified appraisal team."}
                 </p>
+                {selectedCategory && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setSelectedCategory(null)}
+                    className="mt-4"
+                  >
+                    ← Show All Articles
+                  </Button>
+                )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blogPosts.map((post) => (
-                  <Link key={post.id} to={`/blog/${post.slug}`}>
-                    <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
-                      <div className="relative">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="absolute top-4 left-4">
-                          <Badge className={getCategoryColor(post.category)}>
-                            {post.category}
-                          </Badge>
-                        </div>
-                      </div>
-
-                      <CardHeader>
-                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-2">
-                          <span className="flex items-center">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {post.date}
-                          </span>
-                          <span className="flex items-center">
-                            <Clock className="w-4 h-4 mr-1" />
-                            {post.readTime}
-                          </span>
-                        </div>
-                        <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
-                          {post.title}
-                        </CardTitle>
-                      </CardHeader>
-
-                      <CardContent>
-                        <p className="text-gray-600 mb-4">{post.excerpt}</p>
-
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center text-sm text-gray-500">
-                            <User className="w-4 h-4 mr-1" />
-                            {post.author}
+              {filteredPosts.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {filteredPosts.map((post) => (
+                    <Link key={post.id} to={`/blog/${post.slug}`}>
+                      <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
+                        <div className="relative">
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <div className="absolute top-4 left-4">
+                            <Badge className={getCategoryColor(post.category)}>
+                              {post.category}
+                            </Badge>
                           </div>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="group"
-                            asChild
-                          >
-                            <span>
-                              Read More
-                              <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                            </span>
-                          </Button>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+
+                        <CardHeader>
+                          <div className="flex items-center gap-4 text-sm text-gray-500 mb-2">
+                            <span className="flex items-center">
+                              <Calendar className="w-4 h-4 mr-1" />
+                              {post.date}
+                            </span>
+                            <span className="flex items-center">
+                              <Clock className="w-4 h-4 mr-1" />
+                              {post.readTime}
+                            </span>
+                          </div>
+                          <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                            {post.title}
+                          </CardTitle>
+                        </CardHeader>
+
+                        <CardContent>
+                          <p className="text-gray-600 mb-4">{post.excerpt}</p>
+
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center text-sm text-gray-500">
+                              <User className="w-4 h-4 mr-1" />
+                              {post.author}
+                            </div>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="group"
+                              asChild
+                            >
+                              <span>
+                                Read More
+                                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                              </span>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-gray-500 text-lg mb-4">
+                    No articles found in the {selectedCategory} category.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => setSelectedCategory(null)}
+                  >
+                    View All Articles
+                  </Button>
+                </div>
+              )}
 
               {/* Load More */}
               <div className="text-center mt-12">
@@ -302,45 +333,70 @@ export default function Blog() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
+                    <button
+                      onClick={() => setSelectedCategory(null)}
+                      className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors group ${
+                        !selectedCategory
+                          ? "bg-primary text-white"
+                          : "hover:bg-gray-50"
+                      }`}
+                    >
+                      <div className="flex items-center">
+                        <BookOpen
+                          className={`w-4 h-4 mr-3 ${!selectedCategory ? "text-white" : "text-primary"}`}
+                        />
+                        <span
+                          className={`${!selectedCategory ? "text-white" : "text-gray-700 group-hover:text-primary"}`}
+                        >
+                          All Articles
+                        </span>
+                      </div>
+                      <span
+                        className={`text-sm ${!selectedCategory ? "text-blue-100" : "text-gray-500"}`}
+                      >
+                        {allPosts.length}
+                      </span>
+                    </button>
                     {categories.map((category) => (
-                      <Link
+                      <button
                         key={category.name}
-                        to={`/blog/category/${category.name.toLowerCase()}`}
-                        className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                        onClick={() => setSelectedCategory(category.name)}
+                        className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors group ${
+                          selectedCategory === category.name
+                            ? "bg-primary text-white"
+                            : "hover:bg-gray-50"
+                        }`}
                       >
                         <div className="flex items-center">
-                          <category.icon className="w-4 h-4 text-primary mr-3" />
-                          <span className="text-gray-700 group-hover:text-primary">
+                          <category.icon
+                            className={`w-4 h-4 mr-3 ${
+                              selectedCategory === category.name
+                                ? "text-white"
+                                : "text-primary"
+                            }`}
+                          />
+                          <span
+                            className={`${
+                              selectedCategory === category.name
+                                ? "text-white"
+                                : "text-gray-700 group-hover:text-primary"
+                            }`}
+                          >
                             {category.name}
                           </span>
                         </div>
-                        <span className="text-sm text-gray-500">
+                        <span
+                          className={`text-sm ${
+                            selectedCategory === category.name
+                              ? "text-blue-100"
+                              : "text-gray-500"
+                          }`}
+                        >
                           {category.count}
                         </span>
-                      </Link>
+                      </button>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* Newsletter Signup */}
-              <Card className="mb-8 bg-primary text-white">
-                <CardHeader>
-                  <CardTitle className="text-lg text-white">
-                    Stay Updated
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-blue-100 mb-4">
-                    Get the latest appraisal insights and market updates
-                    delivered to your inbox.
-                  </p>
-                  <Button
-                    variant="secondary"
-                    className="w-full bg-white text-primary hover:bg-gray-100"
-                  >
-                    Subscribe to Newsletter
-                  </Button>
                 </CardContent>
               </Card>
 
