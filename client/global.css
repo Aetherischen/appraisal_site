@@ -108,40 +108,45 @@
 
 @layer utilities {
   /* Web scraper protection for contact information */
-  .protected-phone {
-    visibility: hidden;
-    position: relative;
-  }
-  .protected-phone::after {
-    content: "(201) 815-1000";
-    visibility: visible;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  .protected-phone-secondary {
-    visibility: hidden;
-    position: relative;
-  }
-  .protected-phone-secondary::after {
-    content: "(973) 591-9990";
-    visibility: visible;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
+  .protected-phone,
+  .protected-phone-secondary,
   .protected-email {
-    visibility: hidden;
+    text-indent: -9999px;
+    overflow: hidden;
     position: relative;
+    display: inline-block;
+    width: auto;
+    height: 1.2em;
   }
-  .protected-email::after {
-    content: "al@csrappraisals.com";
-    visibility: visible;
+
+  .protected-phone::before {
+    content: "(201) 815-1000";
     position: absolute;
     left: 0;
     top: 0;
+    text-indent: 0;
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  .protected-phone-secondary::before {
+    content: "(973) 591-9990";
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: 0;
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  .protected-email::before {
+    content: "al@csrappraisals.com";
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: 0;
+    color: inherit;
+    white-space: nowrap;
   }
 
   /* Breathing effect animation for quote request container */
