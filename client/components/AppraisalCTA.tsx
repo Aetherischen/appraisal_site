@@ -54,8 +54,9 @@ const AppraisalCTA = ({
   };
 
   const handleCallClick = () => {
-    // Create phone link and trigger it
-    const phoneNumber = BUSINESS_CONTACT.phone.replace(/[^\d]/g, "");
+    // Create phone link with real number (not the scrambled one)
+    const realPhone = "(201) 815-1000";
+    const phoneNumber = realPhone.replace(/[^\d]/g, "");
     window.location.href = `tel:+1${phoneNumber}`;
   };
 
