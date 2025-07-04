@@ -4,6 +4,13 @@ interface ProtectedContactProps {
 }
 
 const ProtectedContact = ({ type, className = "" }: ProtectedContactProps) => {
+  // Real data stored in data attributes for CSS
+  const realData = {
+    phone: "(201) 815-1000",
+    "phone-secondary": "(973) 591-9990",
+    email: "al@csrappraisals.com",
+  };
+
   // Scrambled/fake data that appears in DOM to confuse scrapers
   const scrambledData = {
     phone: "555-000-1234",
@@ -12,7 +19,10 @@ const ProtectedContact = ({ type, className = "" }: ProtectedContactProps) => {
   };
 
   return (
-    <span className={`protected-${type} ${className}`}>
+    <span
+      className={`protected-${type} ${className}`}
+      data-real={realData[type]}
+    >
       {scrambledData[type]}
     </span>
   );
