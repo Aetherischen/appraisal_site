@@ -22,6 +22,13 @@ const Hero = () => {
             "linear-gradient(to right, rgb(86, 105, 114) 0%, rgb(86, 105, 114) 60%, rgba(86, 105, 114, 0.5) 63%, rgba(86, 105, 114, 0) 65%)",
         }}
       ></div>
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{
+          background:
+            "linear-gradient(to right, rgb(86, 105, 114) 0%, rgb(86, 105, 114) 85%, rgba(86, 105, 114, 0.5) 90%, rgba(86, 105, 114, 0) 95%)",
+        }}
+      ></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
