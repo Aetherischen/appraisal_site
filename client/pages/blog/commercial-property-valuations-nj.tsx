@@ -611,11 +611,11 @@ export default function CommercialPropertyValuationsNJ() {
               <div className="text-gray-600 max-w-2xl">
                 <p className="font-semibold mb-2">About the Author</p>
                 <p>
-                  David Rodriguez, MAI, CCIM, specializes in commercial real
-                  estate valuation with over 18 years of experience. He holds
-                  the MAI designation from the Appraisal Institute and CCIM
-                  designation from the CCIM Institute, focusing on investment
-                  analysis and market research.
+                  Albert Zaccone, ASA, is a certified appraiser with over 15
+                  years of experience in real estate valuation. He is an
+                  Accredited Senior Appraiser (ASA) certified by the American
+                  Society of Appraisers and specializes in residential,
+                  commercial, and estate appraisals throughout New Jersey.
                 </p>
               </div>
               <Link

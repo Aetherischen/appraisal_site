@@ -334,7 +334,7 @@ export default function UnderstandingUSPAPGuidelinesNJ() {
                     🚩 Report lacks required certifications and signatures
                   </li>
                   <li>
-                    🚩 Appraiser guarantees a specific value before inspection
+                    �� Appraiser guarantees a specific value before inspection
                   </li>
                   <li>🚩 Report doesn't include comparable sales analysis</li>
                   <li>🚩 Appraiser asks you to suggest a specific value</li>
@@ -513,11 +513,11 @@ export default function UnderstandingUSPAPGuidelinesNJ() {
               <div className="text-gray-600 max-w-2xl">
                 <p className="font-semibold mb-2">About the Author</p>
                 <p>
-                  Michael Thompson, MAI, has over 20 years of experience in real
-                  estate appraisal and is a designated member of the Appraisal
-                  Institute. He has served on USPAP committees and regularly
-                  teaches continuing education courses on professional
-                  standards.
+                  Albert Zaccone, ASA, is a certified appraiser with over 15
+                  years of experience in real estate valuation. He is an
+                  Accredited Senior Appraiser (ASA) certified by the American
+                  Society of Appraisers and specializes in residential,
+                  commercial, and estate appraisals throughout New Jersey.
                 </p>
               </div>
               <Link
