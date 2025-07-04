@@ -24,6 +24,13 @@ export default function CallToAction({
   backgroundColor = "primary",
   className = "",
 }: CallToActionProps) {
+  const handleCallClick = () => {
+    // Use real phone number for functionality
+    const realPhone = "(201) 815-1000";
+    const phoneNumber = realPhone.replace(/[^\d]/g, "");
+    window.location.href = `tel:+1${phoneNumber}`;
+  };
+
   const bgClasses = {
     primary: "bg-primary",
     secondary: "bg-secondary",
