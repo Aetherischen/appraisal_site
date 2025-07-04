@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import ProtectedContact from "@/components/ProtectedContact";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BUSINESS_CONTACT } from "@/lib/constants";
@@ -387,7 +388,7 @@ export default function Services() {
               variant="outline"
               className="text-lg px-8 border-white text-white hover:bg-white hover:text-primary"
             >
-              Call {BUSINESS_CONTACT.phone}
+              Call <ProtectedContact type="phone" />
             </Button>
           </div>
 
