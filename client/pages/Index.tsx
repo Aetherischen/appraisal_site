@@ -70,21 +70,21 @@ export default function Index() {
   const services = [
     {
       icon: Home,
-      title: "Residential Appraisals",
+      title: "New Jersey Residential Property Appraisals",
       description:
-        "Single-family homes, condos, townhouses, duplexes, mobile homes, and vacant land throughout New Jersey.",
+        "Certified residential appraisals for single-family homes, condominiums, townhouses, duplexes, mobile homes, and vacant land throughout Bergen County, Passaic County, Essex County, and all New Jersey municipalities.",
     },
     {
       icon: Building,
-      title: "Commercial Properties",
+      title: "Commercial Real Estate Appraisals NJ",
       description:
-        "Retail, hotels, motels, offices, and development lands with specialized valuation methods.",
+        "Professional commercial property valuations for retail buildings, hotels, motels, office complexes, and development lands using MAI-certified methodologies and specialized valuation approaches.",
     },
     {
       icon: Shield,
-      title: "Legal & Advisory Services",
+      title: "Legal Real Estate Appraisal Services",
       description:
-        "Expert witness services, litigation support, feasibility studies, and lease rate surveys.",
+        "Expert witness testimony, litigation support, divorce appraisals, estate valuations, tax assessment appeals, feasibility studies, and lease rate surveys for New Jersey courts and legal proceedings.",
     },
   ];
 
@@ -143,17 +143,21 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-4" variant="secondary">
-                New Jersey's Trusted Real Estate Appraisal Experts
+                New Jersey's Trusted Real Estate Appraisal Experts Since 2008
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Responsible & Reliable{" "}
-                <span className="text-primary">Real Estate Appraisals</span>
+                Professional New Jersey{" "}
+                <span className="text-primary">Real Estate Appraisals</span> &
+                Property Valuations
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                CSR Realty Appraisers delivers professional, USPAP-compliant
-                appraisals throughout New Jersey. Certified by the American
-                Society of Appraisers, we serve homeowners, attorneys, financial
-                institutions, and government agencies.
+                CSR Realty Appraisers delivers certified, USPAP-compliant
+                property appraisals throughout New Jersey including Bergen
+                County, Passaic County, Essex County, and Morris County.
+                Licensed real estate appraisers certified by the American
+                Society of Appraisers, serving homeowners, real estate agents,
+                attorneys, lenders, financial institutions, and government
+                agencies across NJ.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="text-lg px-8">
@@ -187,11 +191,13 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Appraisal Services
+              Professional New Jersey Real Estate Appraisal Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive real estate valuation services for all property
-              types throughout New Jersey.
+              Comprehensive property valuation and real estate appraisal
+              services for residential, commercial, and land properties
+              throughout New Jersey. Licensed appraisers serving Bergen,
+              Passaic, Essex, Morris, Hudson, and all NJ counties.
             </p>
           </div>
 
