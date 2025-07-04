@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import ProtectedContact from "@/components/ProtectedContact";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -273,7 +274,9 @@ export default function FAQ() {
                 <p className="text-gray-600 mb-4">
                   Speak directly with our appraisal experts
                 </p>
-                <Badge variant="secondary">{BUSINESS_CONTACT.phone}</Badge>
+                <Badge variant="secondary">
+                  <ProtectedContact type="phone" />
+                </Badge>
               </CardContent>
             </Card>
 
