@@ -1,7 +1,12 @@
 export const BUSINESS_CONTACT = {
-  email: "info@premierappraisalnj.com",
-  phone: "(555) 123-4567",
-  phoneNumeric: "5551234567",
-  address: "New Jersey (Serving Statewide)",
-  businessName: "Premier Appraisal Services",
+  email: "al@csrappraisals.com",
+  phone: "(201) 815-1000",
+  phoneSecondary: "(973) 591-9990",
+  phoneNumeric: "2018151000",
+  address: "Wallington, NJ 07057",
+  businessName: "CSR Realty Appraisers",
+  tagline: "New Jersey's Trusted Real Estate Appraisal Experts",
+  owner: "Albert Zaccone, Certified Appraiser",
+  hours: "Monday to Sunday, 9:00 AM - 8:00 PM",
+  serviceArea: "All of New Jersey",
 } as const;
