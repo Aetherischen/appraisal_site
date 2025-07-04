@@ -70,38 +70,40 @@ export default function Index() {
       icon: Home,
       title: "Residential Appraisals",
       description:
-        "Accurate valuations for single-family homes, condos, and townhouses.",
+        "Single-family homes, condos, townhouses, duplexes, mobile homes, and vacant land throughout New Jersey.",
     },
     {
       icon: Building,
       title: "Commercial Properties",
       description:
-        "Professional appraisals for office buildings, retail, and industrial properties.",
+        "Retail, hotels, motels, offices, and development lands with specialized valuation methods.",
     },
     {
       icon: Shield,
-      title: "Legal Services",
+      title: "Legal & Advisory Services",
       description:
-        "Expert witness services for litigation, divorce, and estate planning.",
+        "Expert witness services, litigation support, feasibility studies, and lease rate surveys.",
     },
   ];
 
   const features = [
     {
       icon: CheckCircle,
-      title: "Licensed & Certified",
+      title: "USPAP Compliant",
       description:
-        "All appraisers are state-licensed and certified professionals.",
+        "Certified members of the American Society of Appraisers, fully insured and USPAP compliant.",
     },
     {
       icon: Clock,
-      title: "Fast Turnaround",
-      description: "Quick delivery without compromising accuracy or quality.",
+      title: "Efficient Service",
+      description:
+        "Responsible and efficient delivery while maintaining the highest professional standards.",
     },
     {
       icon: Users,
-      title: "Local Expertise",
-      description: "Deep knowledge of New Jersey markets and neighborhoods.",
+      title: "Extensive Database",
+      description:
+        "Maintaining an extensive electronic database for accurate market analysis across New Jersey.",
     },
   ];
 
@@ -110,21 +112,21 @@ export default function Index() {
       name: "Sarah Johnson",
       role: "Homeowner",
       content:
-        "Professional, thorough, and delivered exactly when promised. Highly recommend!",
+        "CSR Realty Appraisers provided an accurate, professional appraisal for our refinancing. Albert was thorough and explained everything clearly.",
       rating: 5,
     },
     {
       name: "Mike Chen",
-      role: "Real Estate Agent",
+      role: "Real Estate Attorney",
       content:
-        "Premier Appraisal is my go-to for all client appraisal needs. Always reliable.",
+        "CSR is my go-to for all client appraisal needs. Their USPAP-compliant reports are always reliable and well-documented.",
       rating: 5,
     },
     {
       name: "Jennifer Davis",
-      role: "Attorney",
+      role: "Financial Institution",
       content:
-        "Excellent expert witness services. Their reports are detailed and defensible.",
+        "Excellent service for our lending needs. CSR consistently delivers accurate valuations on time.",
       rating: 5,
     },
   ];
@@ -139,16 +141,17 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-4" variant="secondary">
-                New Jersey's Trusted Appraisers
+                New Jersey's Trusted Real Estate Appraisal Experts
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Accurate Real Estate{" "}
-                <span className="text-primary">Appraisals</span> You Can Trust
+                Responsible & Reliable{" "}
+                <span className="text-primary">Real Estate Appraisals</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Professional property valuations throughout New Jersey.
-                Licensed, certified appraisers delivering fast, accurate results
-                for residential and commercial properties.
+                CSR Realty Appraisers delivers professional, USPAP-compliant
+                appraisals throughout New Jersey. Certified by the American
+                Society of Appraisers, we serve homeowners, attorneys, financial
+                institutions, and government agencies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="text-lg px-8">
@@ -214,11 +217,11 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Premier Appraisal?
+              Why Choose CSR Realty Appraisers?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the difference that professional expertise and local
-              knowledge make.
+              Experience the difference that certified expertise, professional
+              standards, and responsible service make.
             </p>
           </div>
 
