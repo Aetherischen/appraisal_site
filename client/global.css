@@ -111,42 +111,45 @@
   .protected-phone,
   .protected-phone-secondary,
   .protected-email {
-    text-indent: -9999px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    width: auto;
-    height: 1.2em;
+    font-size: 0 !important;
+    color: transparent !important;
+    line-height: 0 !important;
+    position: relative !important;
+    display: inline-block !important;
+    overflow: hidden !important;
   }
 
-  .protected-phone::before {
-    content: "(201) 815-1000";
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-indent: 0;
-    color: inherit;
-    white-space: nowrap;
+  .protected-phone::after {
+    content: "(201) 815-1000" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    color: rgb(75, 85, 99) !important;
+    white-space: nowrap !important;
   }
 
-  .protected-phone-secondary::before {
-    content: "(973) 591-9990";
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-indent: 0;
-    color: inherit;
-    white-space: nowrap;
+  .protected-phone-secondary::after {
+    content: "(973) 591-9990" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    color: rgb(75, 85, 99) !important;
+    white-space: nowrap !important;
   }
 
-  .protected-email::before {
-    content: "al@csrappraisals.com";
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-indent: 0;
-    color: inherit;
-    white-space: nowrap;
+  .protected-email::after {
+    content: "al@csrappraisals.com" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    color: rgb(75, 85, 99) !important;
+    white-space: nowrap !important;
   }
 
   /* Breathing effect animation for quote request container */
