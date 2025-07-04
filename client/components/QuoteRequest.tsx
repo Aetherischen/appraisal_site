@@ -112,7 +112,7 @@ ${formData.comments || "No additional comments provided."}
 This request was submitted through the CSR Realty Appraisers website.
     `.trim();
 
-    const subject = `Quote Request - ${formData.propertyAddress}`;
+    const subject = `[INQUIRY] Quote Request - ${formData.propertyAddress}`;
 
     // Create mailto link with real email (not the scrambled one)
     const realEmail = "al@csrappraisals.com";
