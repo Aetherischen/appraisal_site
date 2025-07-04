@@ -15,8 +15,8 @@ export default function Contact() {
       <PageHeader
         badge="Get in Touch"
         title="Contact"
-        subtitle="Our Team"
-        description="Ready to get started? Contact our team of certified appraisers for professional real estate valuation services."
+        subtitle="CSR Realty Appraisers"
+        description="Ready to get started? Contact Albert Zaccone and our team of certified appraisers for professional real estate valuation services. Free, confidential consultations available by appointment."
         variant="gradient"
       />
 
@@ -44,6 +44,9 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold">Phone</h3>
                     <p className="text-gray-600">{BUSINESS_CONTACT.phone}</p>
+                    <p className="text-gray-600">
+                      {BUSINESS_CONTACT.phoneSecondary}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -67,7 +70,8 @@ export default function Contact() {
                   <Clock className="w-5 h-5 text-primary" />
                   <div>
                     <h3 className="font-semibold">Business Hours</h3>
-                    <p className="text-gray-600">Mon-Fri: 9AM-5PM</p>
+                    <p className="text-gray-600">{BUSINESS_CONTACT.hours}</p>
+                    <p className="text-gray-500 text-sm mt-1">By appointment</p>
                   </div>
                 </div>
               </CardContent>
