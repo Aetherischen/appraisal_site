@@ -105,3 +105,43 @@
     font-family: "Georgia", "Times New Roman", serif;
   }
 }
+
+@layer utilities {
+  /* Web scraper protection for contact information */
+  .protected-phone::before {
+    content: "(201) ";
+  }
+  .protected-phone::after {
+    content: "815-1000";
+  }
+
+  .protected-phone-secondary::before {
+    content: "(973) ";
+  }
+  .protected-phone-secondary::after {
+    content: "591-9990";
+  }
+
+  .protected-email::before {
+    content: "al";
+  }
+  .protected-email::after {
+    content: "@csrappraisals.com";
+  }
+
+  /* Hide the actual text content from DOM while keeping pseudo-elements visible */
+  .protected-phone,
+  .protected-phone-secondary,
+  .protected-email {
+    font-size: 0;
+  }
+
+  .protected-phone::before,
+  .protected-phone::after,
+  .protected-phone-secondary::before,
+  .protected-phone-secondary::after,
+  .protected-email::before,
+  .protected-email::after {
+    font-size: 1rem;
+  }
+}
