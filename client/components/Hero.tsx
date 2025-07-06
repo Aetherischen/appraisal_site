@@ -9,10 +9,11 @@ const Hero = () => {
     <section
       className="relative pt-2 pb-20 bg-gradient-to-br from-blue-50 to-white"
       style={{
-        backgroundImage: "url('/hero.webp')",
+        backgroundImage: "url('/section.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
       }}
     >
       <div
