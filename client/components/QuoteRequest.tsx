@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { BUSINESS_CONTACT } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import ProtectedContact from "@/components/ProtectedContact";
+import { Phone, Mail } from "lucide-react";
 
 interface QuoteRequestProps {
   className?: string;
@@ -224,6 +226,23 @@ This request was submitted through the CSR Realty Appraisers website.
       <Button type="submit" className="w-full" disabled={isSubmitting}>
         {isSubmitting ? "Submitting..." : "Request Quote"}
       </Button>
+
+      {/* Contact Information */}
+      <div className="mt-6 pt-4 border-t border-gray-200">
+        <p className="text-sm font-medium text-gray-700 mb-3 text-center">
+          Need immediate assistance? Contact us directly:
+        </p>
+        <div className="space-y-2">
+          <div className="flex items-center justify-center gap-2 text-primary font-semibold">
+            <Phone className="w-4 h-4" />
+            <ProtectedContact type="phone" className="hover:underline" />
+          </div>
+          <div className="flex items-center justify-center gap-2 text-primary font-semibold">
+            <Mail className="w-4 h-4" />
+            <ProtectedContact type="email" className="hover:underline" />
+          </div>
+        </div>
+      </div>
     </form>
   );
 
