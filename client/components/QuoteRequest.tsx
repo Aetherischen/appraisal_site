@@ -86,7 +86,7 @@ const QuoteRequest = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -95,8 +95,45 @@ const QuoteRequest = ({
 
     setIsSubmitting(true);
 
-    // Format the email body
-    const emailBody = `
+    try {
+      const response = await fetch("/api/send-quote-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          propertyAddress: formData.propertyAddress,
+          comments: formData.comments,
+          subject: `[INQUIRY] Quote Request - ${formData.propertyAddress}`,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (response.ok) {
+        // Success - clear form and show success message
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          propertyAddress: "",
+          comments: "",
+        });
+        alert(
+          "Thank you! Your quote request has been sent successfully. We'll contact you within 24 hours.",
+        );
+      } else {
+        // Error response from server
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || "Failed to send quote request");
+      }
+    } catch (error) {
+      console.error("Error sending quote request:", error);
+
+      // Fallback to mailto if API fails
+      const emailBody = `
 New Quote Request from ${formData.name}
 
 Contact Information:
@@ -112,18 +149,20 @@ ${formData.comments || "No additional comments provided."}
 
 ---
 This request was submitted through the CSR Realty Appraisers website.
-    `.trim();
+      `.trim();
 
-    const subject = `[INQUIRY] Quote Request - ${formData.propertyAddress}`;
+      const subject = `[INQUIRY] Quote Request - ${formData.propertyAddress}`;
+      const realEmail = "al@csrappraisals.com";
+      const mailtoLink = `mailto:${realEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
-    // Create mailto link with real email (not the scrambled one)
-    const realEmail = "al@csrappraisals.com";
-    const mailtoLink = `mailto:${realEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-
-    // Open email client
-    window.location.href = mailtoLink;
-
-    setIsSubmitting(false);
+      // Show error message and fallback to mailto
+      alert(
+        "There was an issue sending your request via our system. Opening your email client as a backup.",
+      );
+      window.location.href = mailtoLink;
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = useCallback(
