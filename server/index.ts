@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleSendQuoteRequest } from "./routes/send-quote-request";
 
 export function createServer() {
   const app = express();
@@ -16,6 +17,7 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+  app.post("/api/send-quote-request", handleSendQuoteRequest);
 
   return app;
 }
