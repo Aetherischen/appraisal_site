@@ -22,7 +22,7 @@ const PageHeader = ({
 
   return (
     <section
-      className={`relative ${bgClass} py-20`}
+      className={`relative ${bgClass} pt-2 pb-20`}
       style={{
         backgroundImage: "url('/header.webp')",
         backgroundSize: "cover",

@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 const Hero = () => {
   return (
     <section
-      className="relative py-20 bg-gradient-to-br from-blue-50 to-white"
+      className="relative pt-2 pb-20 bg-gradient-to-br from-blue-50 to-white"
       style={{
         backgroundImage: "url('/hero.webp')",
         backgroundSize: "cover",
