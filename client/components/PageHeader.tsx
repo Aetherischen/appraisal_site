@@ -24,24 +24,25 @@ const PageHeader = ({
     <section
       className={`relative ${bgClass} pt-2 pb-20`}
       style={{
-        backgroundImage: "url('/header.webp')",
+        backgroundImage: "url('/section.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
       }}
     >
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgb(86, 105, 114) 0%, rgb(86, 105, 114) 60%, rgba(86, 105, 114, 0.5) 63%, rgba(86, 105, 114, 0) 65%)",
+            "linear-gradient(to right, rgba(86, 105, 114, 0.5) 0%, rgba(86, 105, 114, 0.5) 60%, rgba(86, 105, 114, 0.25) 63%, rgba(86, 105, 114, 0) 65%)",
         }}
       ></div>
       <div
         className="absolute inset-0 md:hidden"
         style={{
           background:
-            "linear-gradient(to right, rgb(86, 105, 114) 0%, rgb(86, 105, 114) 85%, rgba(86, 105, 114, 0.5) 90%, rgba(86, 105, 114, 0) 95%)",
+            "linear-gradient(to right, rgba(86, 105, 114, 0.5) 0%, rgba(86, 105, 114, 0.5) 85%, rgba(86, 105, 114, 0.25) 90%, rgba(86, 105, 114, 0) 95%)",
         }}
       ></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
