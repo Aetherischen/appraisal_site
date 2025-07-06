@@ -30,6 +30,13 @@ const Hero = () => {
         }}
       ></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Subtle brokerage message */}
+        <div className="absolute top-0 left-4 sm:left-6 lg:left-8">
+          <p className="text-xs text-white/70 bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">
+            Real estate brokerage services available, contact for additional
+            details
+          </p>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Badge className="mb-4" variant="secondary">
