@@ -33,7 +33,7 @@ export const handleSendQuoteRequest = async (req: Request, res: Response) => {
     }
 
     // Create transporter using SMTP (you'll need to configure this with your email provider)
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.gmail.com",
       port: parseInt(process.env.SMTP_PORT || "587"),
       secure: false, // true for 465, false for other ports
@@ -86,7 +86,7 @@ Source: CSR Realty Appraisers Website
           <h2 style="color: #566972; border-bottom: 2px solid #566972; padding-bottom: 10px;">
             New Quote Request Received
           </h2>
-          
+
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #566972; margin-top: 0;">Contact Information</h3>
             <p><strong>Name:</strong> ${name}</p>
