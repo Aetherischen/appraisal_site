@@ -86,7 +86,16 @@ const QuoteRequest = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const createMailtoFallback = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Format the email body
     const emailBody = `
 New Quote Request from ${formData.name}
 
@@ -106,123 +115,15 @@ This request was submitted through the CSR Realty Appraisers website.
     `.trim();
 
     const subject = `[INQUIRY] Quote Request - ${formData.propertyAddress}`;
+
+    // Create mailto link with real email (not the scrambled one)
     const realEmail = "al@csrappraisals.com";
-    return `mailto:${realEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-  };
+    const mailtoLink = `mailto:${realEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    // Open email client
+    window.location.href = mailtoLink;
 
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    // Set timeout for the API request (10 seconds)
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => reject(new Error("Request timeout")), 10000);
-    });
-
-    try {
-      const fetchPromise = fetch("/api/send-quote-request", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          propertyAddress: formData.propertyAddress,
-          comments: formData.comments,
-          subject: `[INQUIRY] Quote Request - ${formData.propertyAddress}`,
-          timestamp: new Date().toISOString(),
-        }),
-      });
-
-      // Race between fetch and timeout
-      const response = (await Promise.race([
-        fetchPromise,
-        timeoutPromise,
-      ])) as Response;
-
-      if (response.ok) {
-        const result = await response.json();
-
-        // Success - clear form and show success message
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          propertyAddress: "",
-          comments: "",
-        });
-
-        alert(
-          "Thank you! Your quote request has been sent successfully. We'll contact you within 24 hours.",
-        );
-        return;
-      } else {
-        // Server returned an error status
-        const errorData = await response
-          .json()
-          .catch(() => ({ message: "Server error" }));
-        throw new Error(
-          errorData.message || `Server error: ${response.status}`,
-        );
-      }
-    } catch (error) {
-      console.error("Error sending quote request:", error);
-
-      let errorMessage =
-        "There was an issue sending your request via our system.";
-
-      // Determine specific error type
-      if (error instanceof TypeError && error.message.includes("fetch")) {
-        errorMessage = "Unable to connect to our email service.";
-      } else if (
-        error instanceof Error &&
-        error.message === "Request timeout"
-      ) {
-        errorMessage = "The request took too long to process.";
-      } else if (
-        error instanceof Error &&
-        error.message.includes("Server error")
-      ) {
-        errorMessage = "Our email service is temporarily unavailable.";
-      }
-
-      // Always fallback to mailto with user confirmation
-      const userConfirmed = confirm(
-        `${errorMessage}\n\nWould you like to open your email client to send the request manually?\n\n(This will pre-fill all your information)`,
-      );
-
-      if (userConfirmed) {
-        try {
-          const mailtoLink = createMailtoFallback();
-          window.location.href = mailtoLink;
-
-          // Show instructions for manual sending
-          setTimeout(() => {
-            alert(
-              "Your email client should now be open with your request pre-filled.\n\nIf it doesn't work, please email us directly at al@csrappraisals.com or call (201) 815-1000.",
-            );
-          }, 1000);
-        } catch (mailtoError) {
-          console.error("Mailto fallback failed:", mailtoError);
-          alert(
-            "Unable to open email client automatically.\n\nPlease contact us directly:\n• Email: al@csrappraisals.com\n• Phone: (201) 815-1000\n• Phone: (973) 591-9990",
-          );
-        }
-      } else {
-        alert(
-          "You can contact us directly:\n• Email: al@csrappraisals.com\n• Phone: (201) 815-1000\n• Phone: (973) 591-9990",
-        );
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
+    setIsSubmitting(false);
   };
 
   const handleInputChange = useCallback(
