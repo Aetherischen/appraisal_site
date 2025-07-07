@@ -23,14 +23,18 @@ export const handleSendEmail = async (req: Request, res: Response) => {
       });
     }
 
-    // Create transporter
+    // Create transporter for GoDaddy/Microsoft Exchange
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
+      host: process.env.SMTP_HOST || "smtpout.secureserver.net",
       port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: false, // true for 465, false for other ports
+      secure: false, // true for 465, false for 587
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
+      },
+      tls: {
+        ciphers: "SSLv3",
+        rejectUnauthorized: false,
       },
     });
 
@@ -46,7 +50,7 @@ Email: ${email}
 Phone: ${phone}
 
 Property Details:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━���━━━━━━━━━━━━━━━━━━
 Address: ${propertyAddress}
 
 Additional Comments:

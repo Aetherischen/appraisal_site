@@ -9,12 +9,16 @@ export const handleTestEmail = async (req: Request, res: Response) => {
     console.log("SMTP_PASS exists:", !!process.env.SMTP_PASS);
 
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
+      host: process.env.SMTP_HOST || "smtpout.secureserver.net",
       port: parseInt(process.env.SMTP_PORT || "587"),
       secure: false,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
+      },
+      tls: {
+        ciphers: "SSLv3",
+        rejectUnauthorized: false,
       },
     });
 
