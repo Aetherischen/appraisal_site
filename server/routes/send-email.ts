@@ -50,7 +50,7 @@ export const handleSendEmail = async (req: Request, res: Response) => {
     }
 
     // Create transporter for GoDaddy/Microsoft Exchange
-    const transporter = nodemailer.createTransport({
+    const transporterConfig = {
       host: process.env.SMTP_HOST || "smtpout.secureserver.net",
       port: parseInt(process.env.SMTP_PORT || "587"),
       secure: false, // true for 465, false for 587
@@ -62,7 +62,18 @@ export const handleSendEmail = async (req: Request, res: Response) => {
         ciphers: "SSLv3",
         rejectUnauthorized: false,
       },
+    };
+
+    console.log("Creating transporter with config:", {
+      ...transporterConfig,
+      auth: { ...transporterConfig.auth, pass: "***hidden***" },
     });
+
+    const transporter = nodemailer.createTransport(transporterConfig);
+
+    // Test connection before sending
+    console.log("Testing SMTP connection...");
+    await transporter.verify();
 
     // Email content
     const subject = `[INQUIRY] Quote Request - ${propertyAddress}`;
