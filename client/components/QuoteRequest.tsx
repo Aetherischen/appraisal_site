@@ -97,6 +97,7 @@ const QuoteRequest = ({
 
     try {
       // Try to send via SMTP first
+      console.log("Attempting to send via SMTP...");
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
@@ -113,6 +114,7 @@ const QuoteRequest = ({
 
       if (response.ok) {
         // Success - clear form and show success message
+        console.log("SMTP send successful!");
         setFormData({
           name: "",
           email: "",
@@ -124,9 +126,16 @@ const QuoteRequest = ({
           "Thank you! Your quote request has been sent successfully. We'll contact you within 24 hours.",
         );
         return;
+      } else {
+        // Log detailed error information
+        const errorData = await response.json().catch(() => ({}));
+        console.error("SMTP failed with status:", response.status);
+        console.error("Error details:", errorData);
+        console.log("Falling back to mailto...");
       }
     } catch (error) {
-      console.error("SMTP failed, falling back to mailto:", error);
+      console.error("SMTP request failed:", error);
+      console.log("Falling back to mailto...");
     }
 
     // Fallback to mailto if SMTP fails
