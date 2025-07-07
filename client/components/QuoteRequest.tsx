@@ -86,7 +86,7 @@ const QuoteRequest = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -95,7 +95,41 @@ const QuoteRequest = ({
 
     setIsSubmitting(true);
 
-    // Format the email body
+    try {
+      // Try to send via SMTP first
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          propertyAddress: formData.propertyAddress,
+          comments: formData.comments,
+        }),
+      });
+
+      if (response.ok) {
+        // Success - clear form and show success message
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          propertyAddress: "",
+          comments: "",
+        });
+        alert(
+          "Thank you! Your quote request has been sent successfully. We'll contact you within 24 hours.",
+        );
+        return;
+      }
+    } catch (error) {
+      console.error("SMTP failed, falling back to mailto:", error);
+    }
+
+    // Fallback to mailto if SMTP fails
     const emailBody = `
 New Quote Request from ${formData.name}
 
@@ -115,8 +149,6 @@ This request was submitted through the CSR Realty Appraisers website.
     `.trim();
 
     const subject = `[INQUIRY] Quote Request - ${formData.propertyAddress}`;
-
-    // Create mailto link with real email (not the scrambled one)
     const realEmail = "al@csrappraisals.com";
     const mailtoLink = `mailto:${realEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
