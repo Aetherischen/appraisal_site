@@ -11,6 +11,14 @@ interface EmailRequest {
 
 export const handleSendEmail = async (req: Request, res: Response) => {
   try {
+    console.log("Email request received:", req.body);
+    console.log("Environment check:", {
+      SMTP_HOST: process.env.SMTP_HOST,
+      SMTP_PORT: process.env.SMTP_PORT,
+      SMTP_USER: process.env.SMTP_USER,
+      SMTP_PASS: !!process.env.SMTP_PASS,
+    });
+
     const { name, email, phone, propertyAddress, comments }: EmailRequest =
       req.body;
 
@@ -20,6 +28,24 @@ export const handleSendEmail = async (req: Request, res: Response) => {
         success: false,
         message:
           "Missing required fields: name, email, phone, and property address are required.",
+      });
+    }
+
+    // Validate environment variables
+    if (
+      !process.env.SMTP_HOST ||
+      !process.env.SMTP_USER ||
+      !process.env.SMTP_PASS
+    ) {
+      console.error("Missing SMTP environment variables");
+      return res.status(500).json({
+        success: false,
+        message: "SMTP configuration incomplete",
+        debug: {
+          hasHost: !!process.env.SMTP_HOST,
+          hasUser: !!process.env.SMTP_USER,
+          hasPass: !!process.env.SMTP_PASS,
+        },
       });
     }
 
@@ -50,7 +76,7 @@ Email: ${email}
 Phone: ${phone}
 
 Property Details:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━���━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Address: ${propertyAddress}
 
 Additional Comments:
@@ -89,9 +115,32 @@ Source: CSR Realty Appraisers Website
     });
   } catch (error) {
     console.error("Error sending email:", error);
+
+    // More detailed error information
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error("Detailed error:", {
+      message: errorMessage,
+      stack: error instanceof Error ? error.stack : undefined,
+      config: {
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        user: process.env.SMTP_USER,
+        hasPassword: !!process.env.SMTP_PASS,
+      },
+    });
+
     res.status(500).json({
       success: false,
       message: "Failed to send quote request. Please try again.",
+      debug: {
+        error: errorMessage,
+        config: {
+          host: process.env.SMTP_HOST || "Not set",
+          port: process.env.SMTP_PORT || "Not set",
+          user: process.env.SMTP_USER || "Not set",
+          hasPassword: !!process.env.SMTP_PASS,
+        },
+      },
     });
   }
 };
