@@ -149,19 +149,14 @@ const QuoteRequest = ({
         debugElement.innerHTML = "SMTP Success! ✅";
         debugElement.style.background = "#00aa00";
 
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          propertyAddress: "",
-          comments: "",
-        });
+        setTimeout(() => {
+          if (document.body.contains(debugElement)) {
+            document.body.removeChild(debugElement);
+          }
+        }, 3000);
 
-        setTimeout(() => document.body.removeChild(debugElement), 3000);
-
-        alert(
-          "Thank you! Your quote request has been sent successfully. We'll contact you within 24 hours.",
-        );
+        setIsSubmitted(true);
+        setIsSubmitting(false);
         return;
       } else {
         console.error("❌ SMTP failed with status:", response.status);
