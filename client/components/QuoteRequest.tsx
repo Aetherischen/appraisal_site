@@ -45,6 +45,7 @@ const QuoteRequest = ({
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Email validation - must contain @ and a domain
   const validateEmail = (email: string): boolean => {
@@ -253,6 +254,47 @@ This request was submitted through the CSR Realty Appraisers website.
     [],
   );
 
+  // Thank you message component
+  const thankYouContent = (
+    <div className="text-center space-y-4 py-8">
+      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg
+          className="w-8 h-8 text-green-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+      </div>
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank You!</h3>
+      <p className="text-gray-600 leading-relaxed">
+        Your quote request has been sent successfully. We'll contact you within
+        24 hours.
+      </p>
+      <div className="mt-6 pt-4 border-t border-gray-200">
+        <p className="text-sm font-medium text-gray-700 mb-3">
+          Need immediate assistance? Contact us directly:
+        </p>
+        <div className="space-y-2">
+          <div className="flex items-center justify-center gap-2 text-primary font-semibold">
+            <Phone className="w-4 h-4" />
+            <ProtectedContact type="phone" className="hover:underline" />
+          </div>
+          <div className="flex items-center justify-center gap-2 text-primary font-semibold">
+            <Mail className="w-4 h-4" />
+            <ProtectedContact type="email" className="hover:underline" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   const formContent = (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
@@ -352,18 +394,22 @@ This request was submitted through the CSR Realty Appraisers website.
   if (variant === "inline") {
     return (
       <div className={className}>
-        <h3 className="font-semibold text-gray-900 mb-4">{title}</h3>
-        {formContent}
+        {!isSubmitted && (
+          <h3 className="font-semibold text-gray-900 mb-4">{title}</h3>
+        )}
+        {isSubmitted ? thankYouContent : formContent}
       </div>
     );
   }
 
   return (
     <Card className={className}>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>{formContent}</CardContent>
+      {!isSubmitted && (
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+        </CardHeader>
+      )}
+      <CardContent>{isSubmitted ? thankYouContent : formContent}</CardContent>
     </Card>
   );
 };
