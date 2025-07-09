@@ -193,6 +193,8 @@ const QuoteRequest = ({
     }, 3000);
 
     // Fallback to mailto if SMTP fails
+    console.log("📧 Initiating mailto fallback...");
+
     const emailBody = `
 New Quote Request from ${formData.name}
 
@@ -214,6 +216,12 @@ This request was submitted through the CSR Realty Appraisers website.
     const subject = `[INQUIRY] Quote Request - ${formData.propertyAddress}`;
     const realEmail = "al@csrappraisals.com";
     const mailtoLink = `mailto:${realEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+    console.log("📧 Opening email client with:", {
+      to: realEmail,
+      subject: subject,
+      bodyLength: emailBody.length,
+    });
 
     // Open email client
     window.location.href = mailtoLink;
