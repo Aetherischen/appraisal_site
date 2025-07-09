@@ -89,32 +89,65 @@ const QuoteRequest = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    console.log("🚀 FORM SUBMISSION STARTED");
+    console.log("Form data:", formData);
+
     if (!validateForm()) {
+      console.log("❌ Form validation failed");
       return;
     }
 
     setIsSubmitting(true);
 
+    // Add visual debugging
+    const debugElement = document.createElement("div");
+    debugElement.id = "email-debug";
+    debugElement.style.cssText = `
+      position: fixed; top: 10px; right: 10px;
+      background: #000; color: #fff; padding: 10px;
+      border-radius: 5px; z-index: 9999; max-width: 300px;
+      font-family: monospace; font-size: 12px;
+    `;
+    debugElement.innerHTML = "Attempting SMTP send...";
+    document.body.appendChild(debugElement);
+
     try {
-      // Try to send via SMTP first
-      console.log("Attempting to send via SMTP...");
+      console.log("🔄 Attempting to send via SMTP...");
+      debugElement.innerHTML = "Sending via SMTP...";
+
+      const requestData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        propertyAddress: formData.propertyAddress,
+        comments: formData.comments,
+      };
+
+      console.log(
+        "📤 Sending request to /api/send-email with data:",
+        requestData,
+      );
+
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          propertyAddress: formData.propertyAddress,
-          comments: formData.comments,
-        }),
+        body: JSON.stringify(requestData),
+      });
+
+      console.log("📥 Response received:", {
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok,
+        url: response.url,
       });
 
       if (response.ok) {
-        // Success - clear form and show success message
-        console.log("SMTP send successful!");
+        console.log("✅ SMTP send successful!");
+        debugElement.innerHTML = "SMTP Success! ✅";
+        debugElement.style.background = "#00aa00";
+
         setFormData({
           name: "",
           email: "",
@@ -122,21 +155,42 @@ const QuoteRequest = ({
           propertyAddress: "",
           comments: "",
         });
+
+        setTimeout(() => document.body.removeChild(debugElement), 3000);
+
         alert(
           "Thank you! Your quote request has been sent successfully. We'll contact you within 24 hours.",
         );
         return;
       } else {
-        // Log detailed error information
-        const errorData = await response.json().catch(() => ({}));
-        console.error("SMTP failed with status:", response.status);
-        console.error("Error details:", errorData);
-        console.log("Falling back to mailto...");
+        console.error("❌ SMTP failed with status:", response.status);
+        debugElement.innerHTML = `SMTP Failed: ${response.status}`;
+        debugElement.style.background = "#aa0000";
+
+        try {
+          const errorData = await response.json();
+          console.error("Error details:", errorData);
+        } catch (parseError) {
+          console.error("Could not parse error response:", parseError);
+        }
+
+        console.log("🔄 Falling back to mailto...");
       }
     } catch (error) {
-      console.error("SMTP request failed:", error);
-      console.log("Falling back to mailto...");
+      console.error("💥 SMTP request failed with exception:", error);
+      debugElement.innerHTML = `SMTP Error: ${error.message}`;
+      debugElement.style.background = "#aa0000";
+      console.log("🔄 Falling back to mailto...");
     }
+
+    // Update debug for mailto fallback
+    debugElement.innerHTML = "Falling back to mailto...";
+    debugElement.style.background = "#ff6600";
+    setTimeout(() => {
+      if (document.body.contains(debugElement)) {
+        document.body.removeChild(debugElement);
+      }
+    }, 3000);
 
     // Fallback to mailto if SMTP fails
     const emailBody = `
