@@ -3,6 +3,7 @@ import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleSendEmail } from "./routes/send-email";
 import { handleTestEmail } from "./routes/test-email";
+import { handleDebug } from "./routes/debug";
 
 export function createServer() {
   const app = express();
@@ -20,6 +21,7 @@ export function createServer() {
   app.get("/api/demo", handleDemo);
   app.post("/api/send-email", handleSendEmail);
   app.get("/api/test-email", handleTestEmail);
+  app.get("/api/debug", handleDebug);
 
   return app;
 }
