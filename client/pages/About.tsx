@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ProtectedContact from "@/components/ProtectedContact";
 import AppraisalCTA from "@/components/AppraisalCTA";
+import CountyCoverage from "@/components/CountyCoverage";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -332,6 +333,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <CountyCoverage />
 
       <AppraisalCTA
         title="Ready to Work with New Jersey's Best?"
