@@ -6,33 +6,48 @@ interface ProtectedContactProps {
 }
 
 const ProtectedContact = ({ type, className = "" }: ProtectedContactProps) => {
-  const spanRef = useRef<HTMLSpanElement>(null);
+  const linkRef = useRef<HTMLAnchorElement>(null);
 
   // Real data for users
   const realData = {
     phone: "(201) 815-1000",
     "phone-secondary": "(973) 591-9990",
     email: "al@csrappraisals.com",
-  };
+  } as const;
 
   // Scrambled data that appears in initial DOM to confuse scrapers
   const scrambledData = {
     phone: "555-000-1234",
     "phone-secondary": "555-000-5678",
     email: "nospam@example.org",
+  } as const;
+
+  // Build href values
+  const makeHref = (t: ProtectedContactProps["type"], value: string) => {
+    if (t === "email") return `mailto:${value}`;
+    const digits = value.replace(/[^0-9]/g, "");
+    return `tel:${digits}`;
   };
 
   useEffect(() => {
-    // Replace scrambled data with real data after mount for human users
-    if (spanRef.current) {
-      spanRef.current.textContent = realData[type];
+    if (linkRef.current) {
+      const realValue = realData[type];
+      linkRef.current.textContent = realValue;
+      linkRef.current.href = makeHref(type, realValue);
     }
-  }, [type, realData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type]);
 
   return (
-    <span ref={spanRef} className={className}>
+    <a
+      ref={linkRef}
+      className={className}
+      href={makeHref(type, scrambledData[type])}
+      aria-label={type === "email" ? "Email us" : "Call us"}
+      rel={type === "email" ? "nofollow" : undefined}
+    >
       {scrambledData[type]}
-    </span>
+    </a>
   );
 };
 
