@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ProtectedContact from "@/components/ProtectedContact";
 import AppraisalCTA from "@/components/AppraisalCTA";
-import CountyCoverage from "@/components/CountyCoverage";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -265,8 +264,6 @@ export default function Index() {
           </div>
         </div>
       </section>
-
-      <CountyCoverage />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-gray-50">
