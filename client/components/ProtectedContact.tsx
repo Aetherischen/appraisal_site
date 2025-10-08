@@ -11,7 +11,7 @@ const ProtectedContact = ({ type, className = "" }: ProtectedContactProps) => {
   // Real data for users
   const realData = {
     phone: "(201) 815-1000",
-    "phone-secondary": "(973) 591-9990",
+    "phone-secondary": "(201) 390-1101",
     email: "al@csrappraisals.com",
   } as const;
 
