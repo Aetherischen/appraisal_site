@@ -47,9 +47,6 @@ export default function Contact() {
                     <p className="text-gray-600">
                       <ProtectedContact type="phone" />
                     </p>
-                    <p className="text-gray-600">
-                      <ProtectedContact type="phone-secondary" />
-                    </p>
                   </div>
                 </div>
               </CardContent>
